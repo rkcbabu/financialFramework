@@ -3,6 +3,8 @@ package project.framework.factory;
 import project.framework.*;
 
 
+import project.framework.transaction.ITransaction;
+
 public class AAbstractFactory implements IAbstractFactory {
 
 	public void createTempCustomer() {

@@ -1,6 +1,8 @@
 package project.framework.factory;
 import project.framework.*;
 
+import project.framework.transaction.ITransaction;
+
 public interface IAbstractFactory {
 
 	public abstract ITransaction createTransaction(IAccount a, String type);

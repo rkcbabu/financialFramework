@@ -1,4 +1,4 @@
-package project.framework;
+package project.framework.transaction;
 
 public interface ITransactionManager {
 

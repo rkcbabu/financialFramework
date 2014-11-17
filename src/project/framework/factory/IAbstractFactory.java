@@ -1,4 +1,5 @@
-package project.framework;
+package project.framework.factory;
+import project.framework.*;
 
 public interface IAbstractFactory {
 

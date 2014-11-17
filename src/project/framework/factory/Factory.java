@@ -1,4 +1,5 @@
-package project.framework;
+package project.framework.factory;
+import project.framework.*;
 
 public abstract class Factory extends AAbstractFactory {
 

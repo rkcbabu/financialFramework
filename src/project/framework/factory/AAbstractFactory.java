@@ -1,4 +1,7 @@
-package project.framework;
+package project.framework.factory;
+
+import project.framework.*;
+
 
 public class AAbstractFactory implements IAbstractFactory {
 

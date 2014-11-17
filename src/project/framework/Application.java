@@ -2,7 +2,7 @@ package project.framework;
 
 public class Application {
 
-	private Bank bank;
+//	private Bank bank;
 
 	public void main() {
 

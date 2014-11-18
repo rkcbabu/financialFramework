@@ -22,6 +22,10 @@ public class Controller implements IController {
         return accountServiceManager.find(id);
     }
 
+            public void addInterest(){
+                accountServiceManager.addInterest();
+            }
+
     public void setCustomerServiceManager(ICustomerManager icm) {
         customerServiceManager = icm;
     }

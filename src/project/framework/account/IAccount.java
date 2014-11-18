@@ -14,7 +14,7 @@ public interface IAccount {
 
 	public double getBalance();
         public ICustomer getCustomer();
-
+        public void addInterest();
 	public void deposit(double amt);
 
 	public void withdraw(double amt);

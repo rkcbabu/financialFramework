@@ -13,6 +13,8 @@ public interface IAccountManager {
 	public  List<IAccount>  getAll();
         
         public void remove(IAccount acc);
+          public void addInterest();
+
        
         
 

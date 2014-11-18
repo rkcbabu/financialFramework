@@ -4,11 +4,19 @@ import project.framework.customer.ICustomer;
 
 public abstract class AAccount implements IAccount {
 
-    private double balance;
+    protected double balance;
     ICustomer customer;
     private static int id;
 
+    public abstract void addInterest();
 
+     public  void sendEmail(){
+        this.getCustomer().sendEmail();
+    }
+    
+  public ICustomer getCustomer(){
+      return customer;
+  }
     public AAccount(ICustomer cus) {
         id++;
         customer = cus;  }
@@ -37,6 +45,7 @@ public abstract class AAccount implements IAccount {
      *
      */
     public void withdraw(double amt) {
+        if((balance-amt)>=0)
         balance -= amt;
     }
 }

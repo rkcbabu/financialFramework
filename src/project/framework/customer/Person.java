@@ -8,6 +8,9 @@ public class Person extends ACustomer implements IPerson {
     
     Date dob = null;
 
+     public String getType(){
+         return "person";
+     }
     public Person(HashMap<String, String> data) {
         super(data.get("name"), data.get("phone"));
         customerAddress = new Address(data.get("street"), data.get("city"), data.get("state"), data.get("zip"));

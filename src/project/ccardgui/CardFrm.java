@@ -1,14 +1,14 @@
-package project.ccard;
+package project.ccardgui;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
-import project.ccard.JDialogGenBill;
-import project.ccard.JDialog_AddCCAccount;
-import project.ccard.JDialog_Deposit;
-import project.ccard.JDialog_Withdraw;
+import project.ccardgui.JDialogGenBill;
+import project.ccardgui.JDialog_AddCCAccount;
+import project.ccardgui.JDialog_Deposit;
+import project.ccardgui.JDialog_Withdraw;
 
 /**
  * A basic JFC based application.

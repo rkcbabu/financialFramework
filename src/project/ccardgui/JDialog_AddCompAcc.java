@@ -1,4 +1,4 @@
-package project.ccard;
+package project.ccardgui;
 
 import java.awt.*;
 import javax.swing.*;

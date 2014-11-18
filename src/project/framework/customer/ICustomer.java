@@ -17,4 +17,5 @@ public interface ICustomer {
     public abstract int getId();
 
     public Report getReport();
+    public String getType();
 }

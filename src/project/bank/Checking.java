@@ -17,5 +17,10 @@ public class Checking extends AAccount{
     public Checking(ICustomer cus) {
         super(cus);
     }
+
+    @Override
+    public void addInterest() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

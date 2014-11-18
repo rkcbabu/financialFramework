@@ -1,21 +1,28 @@
 package project.framework.account;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 public abstract class AAccountManager implements IAccountManager {
 
-    HashMap<Integer, IAccount> accountList;
+    Vector<IAccount> accountList;
 
     public AAccountManager() {
         
-        accountList = new HashMap<Integer, IAccount>();
+        accountList = new Vector<IAccount>();
       
 
     }
+    public void addInterest(){
+        
+        for(IAccount acc:accountList){
+            acc.addInterest();
+        }
+        
+    }
 
     public void add(IAccount acc) {
-        accountList.put(acc.getId(), acc);
+        accountList.add(acc);
     }
 
     public abstract IAccount find(int id);

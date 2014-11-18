@@ -8,6 +8,9 @@ public class Organization extends ACustomer implements ICustomer, IOrganization 
 
     protected int numEmployess;
 
+     public String getType(){
+         return "organization";
+     }
     public Organization(HashMap<String, String> data) {
         super(data.get("name"), data.get("phone"));
         customerAddress = new Address(data.get("street"), data.get("city"), data.get("state"), data.get("zip"));

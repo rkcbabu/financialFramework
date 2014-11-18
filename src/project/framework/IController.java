@@ -19,7 +19,7 @@ public interface IController {
 	public  void undoTransaction();
 	public  void addCustomer(ICustomer c);
         public void addAccount(IAccount acc);
-
+        public void addInterest();
         public List<IAccount> getAllAccounts();
         public IAccount findAccount(int id);
         public ICustomer findCustomer(int id);

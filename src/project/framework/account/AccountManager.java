@@ -17,34 +17,27 @@ public class AccountManager extends AAccountManager {
 
     @Override
     public void add(IAccount acc) {
-        accountList.put(acc.getId(), acc);
+        accountList.add(acc);
 
     }
 
     @Override
     public IAccount find(int id) {
-    IAccount acc=null;
-        try{
-            acc=accountList.get(id);
-        }
-        catch(Exception e){
-            System.out.println("Account not found");
-        }
-        return acc;
+    
+    
+    for(IAccount a:accountList){
+        if(a.getId()==id)
+            return a;
+    }
+      
+        return null;
     }
 
     @Override
     public List<IAccount> getAll() {
         List<IAccount> allAccounts=new ArrayList<IAccount>();
-       // allAccounts=(List<Account>)this.accountList;
-     
-        Iterator acc=accountList.entrySet().iterator();
-    //  allAccounts.add(a);
-        while(acc.hasNext()){
-            Map.Entry me = (Map.Entry)acc.next();
-       
-          allAccounts.add((IAccount)me.getValue());
-        }
+      for(IAccount a:accountList)
+          allAccounts.add(a);
            
         return allAccounts;
     }

@@ -14,4 +14,8 @@ public  class Account extends AAccount {
   public ICustomer getCustomer(){
       return customer;
   }
+
+    @Override
+    public void addInterest() {
+    }
 }

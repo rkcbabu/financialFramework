@@ -1,35 +1,50 @@
 package project.framework.customer;
 
+import java.util.Vector;
 import project.framework.account.IAccount;
 
 public abstract class ACustomer implements ICustomer {
 
-	private String name;
+    private String name;
+    private String phone;
+    private Vector<IAccount> accountList = new Vector();
 
-	private String phone;
+    /**
+     *
+     * @param acc
+     */
+    @Override
+    public void addAccount(IAccount acc) {
+        accountList.add(acc);
+    }
 
-	public abstract void addAccount(IAccount acc);
+    /**
+     *
+     * @param acc
+     */
+    @Override
+    public void removeAccount(IAccount acc) {
+        accountList.remove(acc);
+    }
 
-	public abstract void removeAccount(IAccount acc);
+    /**
+     * @return 
+     * @see ICustomer#getInfo()
+     *
+     *
+     */
+    @Override
+    public String getInfo() {
+        return name;
+    }
 
+    /**
+     * @see ICustomer#sendEmail()
+     *
+     *
+     */
+    public void sendEmail() {
 
-	/**
-	 * @see ICustomer#getInfo()
-	 * 
-	 *  
-	 */
-	public String getInfo() {
-		return null;
-	}
-
-
-	/**
-	 * @see ICustomer#sendEmail()
-	 * 
-	 *  
-	 */
-	public void sendEmail() {
-
-	}
+    }
 
 }

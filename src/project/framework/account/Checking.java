@@ -2,24 +2,24 @@ package project.framework.account;
 
 import project.framework.account.Account;
 
-public class Checking extends  Account {
+public class Checking extends Account {
 
-	public void Check() {
+    public void Check() {
 
-	}
+    }
 
     @Override
-    public void getBalance() {
+    public double getBalance() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deposit() {
+    public void deposit(double amt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void withdraw() {
+    public void withdraw(double amt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

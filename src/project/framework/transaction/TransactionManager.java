@@ -1,11 +1,7 @@
 package project.framework.transaction;
 
-public class TransactionManager extends ATransactionManager {
+import project.framework.IAccount;
 
-//	public abstract void save();
-//
-//	public abstract void request();
-//
-//	public abstract void undo();
+public class TransactionManager extends ATransactionManager {
 
 }

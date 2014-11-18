@@ -1,6 +1,12 @@
 package project.framework.transaction;
 
-public class Withdraw extends  ATransaction {
+import project.framework.account.IAccount;
+
+public class Withdraw extends ATransaction {
+
+    public Withdraw(IAccount a, double amt) {
+        super(a, amt);
+    }
 //
 //	private IAccount iAccount;
 //

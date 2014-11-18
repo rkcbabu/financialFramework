@@ -1,27 +1,31 @@
 package project.framework.transaction;
 
 import java.util.Date;
+import project.framework.account.IAccount;
 
 public class ATransaction implements ITransaction {
 
-	private double amount;
+    protected double amount;
+    protected IAccount account;
+    protected Date txnDate;
 
-	private Date txnDate;
+    public ATransaction(IAccount a, double amt) {
+        account = a;
+        amount = amt;
+    }
 
+    /**
+     * @see ITransaction#execute()
+     */
+    public void execute() {
 
-	/**
-	 * @see ITransaction#execute()
-	 */
-	public void execute() {
+    }
 
-	}
+    /**
+     * @see ITransaction#undo()
+     */
+    public void undo() {
 
-
-	/**
-	 * @see ITransaction#undo()
-	 */
-	public void undo() {
-
-	}
+    }
 
 }

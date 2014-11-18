@@ -1,13 +1,16 @@
 package project.framework.factory;
 
+import java.util.HashMap;
 import project.framework.account.IAccount;
-import project.framework.customer.ICustomer;
+import project.framework.customer.*;
 import project.framework.transaction.*;
 
 public abstract  class AAbstractFactory implements IAbstractFactory {
 
-	public void createTempCustomer() {
+	public ICustomer createTempCustomer(HashMap data) {
 
+                ICustomer cus=new Person(data);
+                return cus;
 	}
 
 
@@ -30,5 +33,5 @@ public abstract  class AAbstractFactory implements IAbstractFactory {
 	/**
 	 * @see IAbstractFactory#createCustomer()
 	 */
-	public  abstract ICustomer createCustomer() ;
+	public  abstract ICustomer createCustomer(HashMap data);
 }

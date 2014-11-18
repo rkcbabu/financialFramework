@@ -5,8 +5,8 @@ import project.framework.account.IAccount;
 
 public abstract class ACustomer implements ICustomer {
 
-    private String name;
-    private String phone;
+    protected String name;
+    protected String phone;
     private Vector<IAccount> accountList = new Vector();
 
     /**

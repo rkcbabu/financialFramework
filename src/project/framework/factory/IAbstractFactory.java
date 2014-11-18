@@ -1,4 +1,5 @@
 package project.framework.factory;
+import java.util.HashMap;
 import project.framework.account.*;
 import project.framework.customer.*;
 
@@ -10,8 +11,8 @@ public interface IAbstractFactory {
 
 	public  IAccount createAccount(ICustomer c);
 
-	public   ICustomer createCustomer();
+	public   ICustomer createCustomer(HashMap data);
 
-	public  void createTempCustomer();
+	
 
 }

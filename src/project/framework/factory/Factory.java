@@ -1,17 +1,13 @@
 package project.framework.factory;
+import java.util.HashMap;
 import project.framework.account.*;
 import project.framework.customer.*;
-import project.framework.*;
-
 import project.framework.transaction.*;
 
 public  class Factory extends AAbstractFactory {
-
-	public  ICustomer createCustomer(){
-            return null;
-        }
-
-        public ITransaction createTransaction(IAccount a, String type, double amount) {
+    
+//    
+    public ITransaction createTransaction(IAccount a, String type, double amount) {
  ITransaction newTransaction=null;
             
             if(type.equalsIgnoreCase("withdraw"))
@@ -41,6 +37,17 @@ public  class Factory extends AAbstractFactory {
         
     }
 
+    @Override
+    public ICustomer createCustomer(HashMap data) {
+
+    return new Person(data);
+    }
+
+    
+
+    
+
+    
     
 
     

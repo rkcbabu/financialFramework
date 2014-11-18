@@ -15,5 +15,6 @@ public interface IAccount {
 	public void deposit(double amt);
 
 	public void withdraw(double amt);
+        public int getId();
 
 }

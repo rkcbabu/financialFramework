@@ -1,7 +1,7 @@
 package project.framework;
 
 import java.util.HashMap;
-import project.framework.*;
+import project.framework.account.IAccount;
 import project.framework.customer.*;
 import project.framework.factory.*;
 public class FrameworkClient {
@@ -18,13 +18,20 @@ public class FrameworkClient {
         userdata.put("email", "abc@gmail.com");
         userdata.put("street", "myStreet");
         userdata.put("city", "myCity");
-        userdata.put("zip", "myzip");
+        userdata.put("zip", "668");
         
         
         
         
         
        ICustomer customer=finaceFactory.createCustomer(userdata);
+       IAccount account=finaceFactory.createAccount(customer);
+       customer.addAccount(account);
+       
+       
+       controller.addAccount(account);
+     //  controller.addCustomer(customer);
+       
         
     }
 }

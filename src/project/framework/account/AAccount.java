@@ -5,12 +5,19 @@ import project.framework.customer.ICustomer;
 public abstract class AAccount implements IAccount {
 
     private double balance;
-    ICustomer customer = null;
+    ICustomer customer;
+    private static int id;
 
 
     public AAccount(ICustomer cus) {
+        id++;
         customer = cus;  }
 
+   
+     public int getId(){
+         return 1;
+     }
+   
     public double getBalance() {
         return balance;
     }

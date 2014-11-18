@@ -1,27 +1,40 @@
 package project.framework.account;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class AccountManager extends AAccountManager {
-    Vector<IAccount> accountList;
-    public AccountManager(){
-        accountList=new Vector<IAccount>();
+
+    HashMap<Integer, IAccount> accountList;
+
+    public AccountManager() {
+        accountList = new HashMap<>();
 
     }
-    
+
     @Override
     public void add(IAccount acc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        accountList.put(acc.getId(), acc);
+
     }
 
     @Override
-    public void find(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IAccount find(int id) {
+    IAccount acc=null;
+        try{
+            acc=accountList.get(id);
+        }
+        catch(Exception e){
+            System.out.println("Account not found");
+        }
+        return acc;
     }
 
     @Override
-    public void findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Account> getAll() {
+        List<Account> allAccounts=new ArrayList<Account>();
+        allAccounts=(List<Account>)this.accountList;
+        return allAccounts;
     }
-
 }

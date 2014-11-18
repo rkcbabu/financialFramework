@@ -54,6 +54,7 @@ public abstract class ACustomer implements ICustomer {
      */
     public void sendEmail() {
 
+        System.out.println("Email sent to customer ");
     }
 
     public int getId() {

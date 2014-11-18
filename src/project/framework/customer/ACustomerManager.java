@@ -2,11 +2,17 @@ package project.framework.customer;
 
 import java.util.List;
 import java.util.Vector;
+import project.framework.search.Predicate;
+import project.framework.search.SearchById;
 
 public abstract class ACustomerManager implements ICustomerManager {
 
     private String type;
     protected Vector<ICustomer> customerList;
+    
+    public ACustomerManager(){
+        customerList = new Vector();
+    }
 
     public abstract void emailNotify();
 
@@ -25,16 +31,15 @@ public abstract class ACustomerManager implements ICustomerManager {
      *
      *
      */
-    public ICustomer find(int id) {
+    public ICustomer find(int id, Predicate p) {
         ICustomer customer = null;
         
         for (ICustomer c: customerList){
-            if (c.getId() == id){
+            if (p.search(c.getId())){
                 customer = c;
                 break;
             }
         }
-        
         return customer;
     }
 
@@ -42,7 +47,7 @@ public abstract class ACustomerManager implements ICustomerManager {
      * @see ICustomerManager#getAll()
      *
      */
-    public List getAll() {
+    public List<ICustomer> getAll() {
         return customerList;
     }
 

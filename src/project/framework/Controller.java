@@ -8,6 +8,8 @@ import project.framework.account.IAccountManager;
 import project.framework.customer.CustomerManager;
 import project.framework.customer.ICustomer;
 import project.framework.customer.ICustomerManager;
+import project.framework.search.Predicate;
+import project.framework.search.SearchById;
 import project.framework.transaction.ITransaction;
 import project.framework.transaction.ITransactionManager;
 import project.framework.transaction.TransactionManager;
@@ -18,14 +20,15 @@ public class Controller implements IController {
     private IAccountManager accountManager;
     private ICustomerManager customerManager;
 
-     public IAccount findAccount(int id){
-         return this.accountManager.find(id);
-         
-     }
-        public ICustomer findCustomer(int id){
-            return this.customerManager.find(id);
-        }
-    
+    public IAccount findAccount(int id) {
+        return accountManager.find(id);
+    }
+
+    public ICustomer findCustomer(int id) {
+        Predicate<Integer> p = new SearchById(id);
+        return this.customerManager.find(id, p);
+    }
+
     public void setTransactionManager(ITransactionManager transactionManager) {
         this.transactionManager = transactionManager;
     }

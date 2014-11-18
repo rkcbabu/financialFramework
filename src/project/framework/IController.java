@@ -14,6 +14,4 @@ public interface IController {
         public List<Account> getAllAccounts();
         public IAccount findAccount(int id);
         public ICustomer findCustomer(int id);
-        
-        
 }

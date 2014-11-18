@@ -1,11 +1,18 @@
 package project.framework.customer;
 
-public abstract class CustomerManager extends ACustomerManager {
+public  class CustomerManager extends ACustomerManager {
 
-	public abstract void add();
+	public  void add(){
+            
+        }
 
 //	public abstract void find(int id);
 //
 //	public abstract void findAll();
+
+    @Override
+    public void emailNotify() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

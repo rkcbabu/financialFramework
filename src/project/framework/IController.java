@@ -1,17 +1,14 @@
 package project.framework;
 
+import project.framework.account.IAccount;
+import project.framework.customer.ICustomer;
+
 public interface IController {
-//
-//	private ITransactionManager iTransactionManager;
-//
-//	private IAccountManager iAccountManager;
-//
-//	private ICustomerManager iCustomerManager;
+	public  void requestTransaction();
 
-	public abstract void requestTransaction();
+	public  void undoTransaction();
 
-	public abstract void undoTransaction();
-
-	public abstract void createCustomer();
+	public  ICustomer createCustomer();
+        public void addAccount(IAccount acc);
 
 }

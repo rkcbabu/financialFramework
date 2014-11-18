@@ -1,6 +1,7 @@
 package project.framework.factory;
 import project.framework.account.*;
 import project.framework.customer.*;
+import project.framework.*;
 
 import project.framework.transaction.*;
 
@@ -28,7 +29,16 @@ public  class Factory extends AAbstractFactory {
 
     @Override
     public IAccount createAccount(ICustomer c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+      
+       
+        IAccount acc=new Account(c);
+        return acc;
+        
+        
+       
+       
+        
     }
 
     

@@ -1,11 +1,10 @@
 package project.framework.account;
 
-public abstract class Account extends AAccount {
+public  class Account extends AAccount {
 
-	public abstract void getBalance();
-
-	public abstract void deposit();
-
-	public abstract void withdraw();
+    @Override
+    public double getBalance() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

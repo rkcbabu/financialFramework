@@ -4,7 +4,9 @@ public abstract class AAccount implements IAccount {
 
 	private double balance;
 
-	public abstract void getBalance();
+        	public double getBalance(){
+            return balance;
+        }
 
 	/**
 	 * @see IAccount#deposit()

@@ -10,7 +10,7 @@ public interface IAccount {
 //
 //	private ICustomer iCustomer;
 
-	public  void getBalance();
+	public  double getBalance();
 
 	public  void deposit(double amt);
 

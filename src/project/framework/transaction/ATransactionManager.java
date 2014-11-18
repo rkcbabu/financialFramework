@@ -6,6 +6,7 @@ import project.framework.*;
 public class ATransactionManager implements ITransactionManager {
 
     protected Vector<ITransaction> transactionList = new Vector();
+    //private Vector<ITransaction> undoTransactionList = new Vector();
 
     public void generateReport() {
 
@@ -33,7 +34,10 @@ public class ATransactionManager implements ITransactionManager {
      *
      */
     public void undo() {
-
+        ITransaction transaction = transactionList.lastElement();
+        transaction.undo();
+        //undoTransactionList.add(transaction);
+        transactionList.removeElement(transaction);
     }
 
 }

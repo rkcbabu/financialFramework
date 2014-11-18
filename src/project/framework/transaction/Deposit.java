@@ -8,10 +8,13 @@ public class Deposit extends ATransaction {
         super(a, amt);
     }
 
-    public void execute(){
+    public void execute() {
         account.deposit(amount);
     }
-//
-//	public abstract void undo();
+
+    @Override
+    public void undo() {
+        account.withdraw(amount);
+    }
 
 }

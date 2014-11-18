@@ -1,7 +1,7 @@
 package project.framework.customer;
 
 import java.util.List;
-import project.framework.search.Predicate;
+import project.frameworksearch.Predicate;
 
 public interface ICustomerManager {
 

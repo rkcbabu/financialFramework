@@ -2,8 +2,8 @@ package project.framework.customer;
 
 import java.util.List;
 import java.util.Vector;
-import project.framework.search.Predicate;
-import project.framework.search.SearchById;
+import project.frameworksearch.Predicate;
+import project.frameworksearch.SearchById;
 
 public abstract class ACustomerManager implements ICustomerManager {
 

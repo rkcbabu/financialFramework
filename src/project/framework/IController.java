@@ -26,7 +26,7 @@ public interface IController {
         public List<IAccount> getAllAccounts();
         public IAccount findAccount(int id);
         public ICustomer findCustomer(int id);
-        public ITransaction createTransaction(IAccount a,  String type,double amount);
+        public ITransaction createTransaction(int accId,  String type,double amount);
         public   ICustomer createCustomer(HashMap data, String type);
 	public  IAccount createAccount(ICustomer c, String type);
 

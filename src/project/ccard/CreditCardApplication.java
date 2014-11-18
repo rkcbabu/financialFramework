@@ -11,9 +11,8 @@ import project.framework.account.AccountManager;
 import project.framework.account.IAccount;
 import project.framework.customer.CustomerManager;
 import project.framework.customer.ICustomer;
-import project.framework.factory.Factory;
+import project.framework.transaction.ITransaction;
 import project.framework.transaction.TransactionManager;
-import project.ccard.*;
 
 /**
  *
@@ -45,14 +44,20 @@ public class CreditCardApplication {
         
        ICustomer customer=controller.createCustomer(userdata,"organization");
        IAccount account=controller.createAccount(customer,"gold");
+       // account id 1
       
        
        
        customer.addAccount(account);
        
        
-       controller.addAccount(account);
+      
        controller.addCustomer(customer);
+       
+       ITransaction tn=controller.createTransaction(1, "charge", 50.00);
+       
+       controller.requestTransaction(tn);
+       
       //  System.out.println(controller.getAllAccounts().get(0).getId());
        
         System.out.println(controller.findCustomer(1).getInfo());

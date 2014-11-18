@@ -26,9 +26,10 @@ public class Controller implements IController {
             }
 
 
-    public ITransaction createTransaction(IAccount a, String type, double amount) {
+    public ITransaction createTransaction(int accId, String type, double amount) {
 
-        return creationServiceManager.createTransaction(a, type, amount);
+        IAccount acc=this.accountServiceManager.find(accId);
+        return creationServiceManager.createTransaction(acc, type, amount);
     }
 
     public IAccount findAccount(int id) {
@@ -113,7 +114,7 @@ public class Controller implements IController {
 //        this.abstractFactory = abstractFactory;
 //    }
     public void executeTransaction(ITransaction tran) {
-        this.transactionServiceManager.equals(tran);
+        this.transactionServiceManager.request(tran);
     }
 
     public Report getReport() {

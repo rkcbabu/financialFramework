@@ -1,12 +1,17 @@
 package project.framework.account;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class AccountManager extends AAccountManager {
 
-    
+    public AccountManager(){
+       
+    }
 
     
 
@@ -29,9 +34,18 @@ public class AccountManager extends AAccountManager {
     }
 
     @Override
-    public List<Account> getAll() {
-        List<Account> allAccounts=new ArrayList<Account>();
-        allAccounts=(List<Account>)this.accountList;
+    public List<IAccount> getAll() {
+        List<IAccount> allAccounts=new ArrayList<IAccount>();
+       // allAccounts=(List<Account>)this.accountList;
+     
+        Iterator acc=accountList.entrySet().iterator();
+    //  allAccounts.add(a);
+        while(acc.hasNext()){
+            Map.Entry me = (Map.Entry)acc.next();
+       
+          allAccounts.add((IAccount)me.getValue());
+        }
+           
         return allAccounts;
     }
 }

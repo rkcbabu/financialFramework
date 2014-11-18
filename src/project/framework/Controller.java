@@ -8,63 +8,72 @@ import project.framework.account.IAccountManager;
 import project.framework.customer.CustomerManager;
 import project.framework.customer.ICustomer;
 import project.framework.customer.ICustomerManager;
-import project.frameworksearch.Predicate;
-import project.frameworksearch.SearchById;
+import project.framework.factory.IAbstractFactory;
+//import project.framework.search.Predicate;
+//import project.framework.search.SearchById;
 import project.framework.transaction.ITransaction;
 import project.framework.transaction.ITransactionManager;
 import project.framework.transaction.TransactionManager;
 
 public class Controller implements IController {
 
-    private ITransactionManager transactionManager;
-    private IAccountManager accountManager;
-    private ICustomerManager customerManager;
+    private ITransactionManager transactionServiceManager;
+    private IAccountManager accountServiceManager;
+    private ICustomerManager customerServiceManager;
 
     public IAccount findAccount(int id) {
-        return accountManager.find(id);
+        return accountServiceManager.find(id);
     }
+    
+     public void setCustomerServiceManager(ICustomerManager icm){
+         customerServiceManager=icm;
+     }
+        public void setTransactionServiceManager(ITransactionManager itm){
+            transactionServiceManager=itm;
+        }
+        public void setAccountServiceManager(IAccountManager iam){
+            accountServiceManager=iam;
+        }
+       
 
-    public ICustomer findCustomer(int id) {
-        Predicate<Integer> p = new SearchById(id);
-        return this.customerManager.find(id, p);
-    }
-
-    public void setTransactionManager(ITransactionManager transactionManager) {
-        this.transactionManager = transactionManager;
-    }
-
-    public void setAccountManager(IAccountManager accountManager) {
-        this.accountManager = accountManager;
-    }
-
-    public void setCustomerManager(ICustomerManager customerManager) {
-        this.customerManager = customerManager;
-    }
+//    public ICustomer findCustomer(int id) {
+//        Predicate<Integer> p = new SearchById(id);
+//        return this.customerServiceManager.find(id, p);
+//    }
+//
+//  
 
     public Controller() {
-        transactionManager = new TransactionManager();
-        accountManager = new AccountManager();
-        customerManager = new CustomerManager();
+       
+       
+       
     }
 
     public void requestTransaction(ITransaction t) {
-        transactionManager.request(t);
+        transactionServiceManager.request(t);
     }
 
     public void undoTransaction() {
-        transactionManager.undo();
+        transactionServiceManager.undo();
     }
 
     public void addCustomer(ICustomer c) {
-        customerManager.add(c);
+        customerServiceManager.add(c);
     }
 
     @Override
     public void addAccount(IAccount acc) {
-        accountManager.add(acc);
+        accountServiceManager.add(acc);
     }
 
-    public List<Account> getAllAccounts() {
-        return this.accountManager.getAll();
+    @Override
+    public List<IAccount> getAllAccounts() {
+       
+        return this.accountServiceManager.getAll();
+    }
+
+    @Override
+    public ICustomer findCustomer(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

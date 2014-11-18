@@ -10,7 +10,7 @@ public interface IAccountManager {
 
 	public  IAccount find(int id);
 
-	public  List<Account>  getAll();
+	public  List<IAccount>  getAll();
         
         public void remove(IAccount acc);
        

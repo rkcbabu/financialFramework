@@ -8,7 +8,9 @@ public abstract class AAccountManager implements IAccountManager {
     HashMap<Integer, IAccount> accountList;
 
     public AAccountManager() {
-        accountList = new HashMap<>();
+        
+        accountList = new HashMap<Integer, IAccount>();
+      
 
     }
 
@@ -18,7 +20,7 @@ public abstract class AAccountManager implements IAccountManager {
 
     public abstract IAccount find(int id);
 
-    public abstract List<Account> getAll();
+    public abstract List<IAccount> getAll();
 
     public void remove(IAccount acc) {
         accountList.remove(acc);

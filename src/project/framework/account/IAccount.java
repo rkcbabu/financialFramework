@@ -12,8 +12,8 @@ public interface IAccount {
 
 	public abstract void getBalance();
 
-	public abstract void deposit();
+	public abstract void deposit(double amt);
 
-	public abstract void withdraw();
+	public abstract void withdraw(double amt);
 
 }

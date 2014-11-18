@@ -18,7 +18,7 @@ public class ATransaction implements ITransaction {
      * @see ITransaction#execute()
      */
     public void execute() {
-
+        // override this
     }
 
     /**

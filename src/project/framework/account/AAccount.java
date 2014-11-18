@@ -6,14 +6,13 @@ public abstract class AAccount implements IAccount {
 
 	public abstract void getBalance();
 
-
 	/**
 	 * @see IAccount#deposit()
 	 * 
 	 *  
 	 */
-	public void deposit() {
-
+	public void deposit(double amt) {
+            balance += amt;
 	}
 
 
@@ -22,8 +21,8 @@ public abstract class AAccount implements IAccount {
 	 * 
 	 *  
 	 */
-	public void withdraw() {
-
+	public void withdraw(double amt) {
+            balance -= amt;
 	}
 
 }

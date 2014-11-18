@@ -10,7 +10,9 @@ public class Withdraw extends ATransaction {
 //
 //	private IAccount iAccount;
 //
-//	public abstract void execute();
+	public void execute(){
+            account.withdraw(amount);
+        }
 //
 //	public abstract void undo();
 

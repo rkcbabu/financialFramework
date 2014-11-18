@@ -7,7 +7,10 @@ public class Deposit extends ATransaction {
     public Deposit(IAccount a, double amt) {
         super(a, amt);
     }
-//	public abstract void execute();
+
+    public void execute(){
+        account.deposit(amount);
+    }
 //
 //	public abstract void undo();
 

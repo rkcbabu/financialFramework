@@ -1,12 +1,12 @@
-package project.bank;
+package bankGui;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
-import project.bank.JDialog_Deposit;
-import project.bank.JDialog_Withdraw;
+import bankGui.JDialog_Deposit;
+import bankGui.JDialog_Withdraw;
 
 /**
  * A basic JFC based application.

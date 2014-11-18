@@ -30,8 +30,9 @@ public class FrameworkClient {
        
        
        controller.addAccount(account);
-     //  controller.addCustomer(customer);
+       controller.addCustomer(customer);
        
-        
+         
+       
     }
 }

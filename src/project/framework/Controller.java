@@ -1,5 +1,7 @@
 package project.framework;
 
+import java.util.List;
+import project.framework.account.Account;
 import project.framework.account.AccountManager;
 import project.framework.account.IAccount;
 import project.framework.account.IAccountManager;
@@ -16,6 +18,14 @@ public class Controller implements IController {
     private IAccountManager accountManager;
     private ICustomerManager customerManager;
 
+     public IAccount findAccount(int id){
+         return this.accountManager.find(id);
+         
+     }
+        public ICustomer findCustomer(int id){
+            return this.customerManager.find(id);
+        }
+    
     public void setTransactionManager(ITransactionManager transactionManager) {
         this.transactionManager = transactionManager;
     }
@@ -49,5 +59,9 @@ public class Controller implements IController {
     @Override
     public void addAccount(IAccount acc) {
         accountManager.add(acc);
+    }
+
+    public List<Account> getAllAccounts() {
+        return this.accountManager.getAll();
     }
 }

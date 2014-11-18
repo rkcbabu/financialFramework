@@ -6,11 +6,15 @@ public interface IAccountManager {
 
 //	private IAccount iAccount;
 
-	public abstract void add(IAccount acc);
+	public  void add(IAccount acc);
 
-	public abstract IAccount find(int id);
+	public  IAccount find(int id);
 
-		public abstract List<Account>  getAll();
+	public  List<Account>  getAll();
+        
+        public void remove(IAccount acc);
+       
+        
 
 
 }

@@ -6,12 +6,9 @@ import java.util.List;
 
 public class AccountManager extends AAccountManager {
 
-    HashMap<Integer, IAccount> accountList;
+    
 
-    public AccountManager() {
-        accountList = new HashMap<>();
-
-    }
+    
 
     @Override
     public void add(IAccount acc) {

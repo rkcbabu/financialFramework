@@ -4,14 +4,14 @@ import java.util.List;
 
 public interface ICustomerManager {
 
-	public abstract void add(ICustomer cus);
+	public  void add(ICustomer cus);
 
-	public abstract ICustomer find(int id);
+	public  ICustomer find(int id);
 
-	public abstract List getAll();
+	public  List getAll();
 
-	public abstract String getType();
+	public  String getType();
 
-	public abstract void emailNotify();
+	public  void emailNotify();
 
 }

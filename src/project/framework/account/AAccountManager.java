@@ -1,16 +1,26 @@
 package project.framework.account;
 
+import java.util.HashMap;
 import java.util.List;
 
-public abstract  class AAccountManager implements IAccountManager {
+public abstract class AAccountManager implements IAccountManager {
 
-	private AAccount aAccount;
+    HashMap<Integer, IAccount> accountList;
 
-	public abstract void add(IAccount acc);
+    public AAccountManager() {
+        accountList = new HashMap<>();
 
-	public abstract IAccount find(int id);
+    }
 
-       
-	public abstract List<Account>  getAll();
+    public void add(IAccount acc) {
+        accountList.put(acc.getId(), acc);
+    }
 
+    public abstract IAccount find(int id);
+
+    public abstract List<Account> getAll();
+
+    public void remove(IAccount acc) {
+        accountList.remove(acc);
+    }
 }

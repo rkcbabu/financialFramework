@@ -1,18 +1,17 @@
 package project.framework.factory;
-import project.framework.customer.ICustomer;
-import project.framework.account.IAccount;
-import project.framework.*;
+import project.framework.account.*;
+import project.framework.customer.*;
 
 import project.framework.transaction.ITransaction;
 
 public interface IAbstractFactory {
 
-	public abstract ITransaction createTransaction(IAccount a, String type);
+	public   ITransaction createTransaction(IAccount a, String type,double amount);
 
-	public abstract IAccount createAccount(ICustomer c);
+	public  IAccount createAccount(ICustomer c);
 
-	public abstract ICustomer createCustomer();
+	public   ICustomer createCustomer();
 
-	public void createTempCustomer();
+	public  void createTempCustomer();
 
 }

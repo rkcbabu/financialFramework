@@ -1,6 +1,6 @@
 package project.framework.transaction;
 
-import project.framework.IAccount;
+import project.framework.*;
 
 public interface ITransactionManager {
 

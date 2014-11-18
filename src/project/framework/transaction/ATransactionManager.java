@@ -1,7 +1,7 @@
 package project.framework.transaction;
 
 import java.util.Vector;
-import project.framework.IAccount;
+import project.framework.*;
 
 public class ATransactionManager implements ITransactionManager {
 

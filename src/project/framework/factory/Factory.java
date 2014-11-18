@@ -1,16 +1,44 @@
 package project.framework.factory;
-import project.framework.customer.ICustomer;
-import project.framework.account.IAccount;
-import project.framework.*;
+import project.framework.account.*;
+import project.framework.customer.*;
 
-import project.framework.transaction.ITransaction;
+import project.framework.transaction.*;
 
-public abstract class Factory extends AAbstractFactory {
+public  class Factory extends AAbstractFactory {
 
-	public abstract ITransaction createTransaction(IAccount a, String type);
+	public  ICustomer createCustomer(){
+            return null;
+        }
 
-	public abstract IAccount createAccount(ICustomer c);
+        public ITransaction createTransaction(IAccount a, String type, double amount) {
+ ITransaction newTransaction=null;
+            
+            if(type.equalsIgnoreCase("withdraw"))
+                
+		newTransaction=new Deposit(a,amount);
+            else if (type.equalsIgnoreCase("deposit")){
+                newTransaction=new Withdraw(a,amount);
+            }
+            
+            return newTransaction;    }
 
-	public abstract ICustomer createCustomer();
+    
+
+    
+
+    @Override
+    public IAccount createAccount(ICustomer c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+    
+
+   
+
+   
+
+         
 
 }

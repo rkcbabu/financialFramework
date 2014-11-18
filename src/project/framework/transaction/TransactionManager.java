@@ -1,6 +1,6 @@
 package project.framework.transaction;
 
-import project.framework.IAccount;
+import project.framework.*;
 
 public class TransactionManager extends ATransactionManager {
 

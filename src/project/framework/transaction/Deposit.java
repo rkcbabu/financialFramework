@@ -7,6 +7,7 @@ public class Deposit extends ATransaction {
     public Deposit(IAccount a, double amt) {
         super(a, amt);
     }
+  
 
     public void execute() {
         account.deposit(amount);
@@ -15,6 +16,11 @@ public class Deposit extends ATransaction {
     @Override
     public void undo() {
         account.withdraw(amount);
+    }
+
+    @Override
+    public String getType() {
+    return "deposit";
     }
 
 }

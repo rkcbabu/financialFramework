@@ -31,13 +31,12 @@ public abstract class ACustomerManager implements ICustomerManager {
      *
      *
      */
-    public ICustomer find(int id, Predicate p) {
+    public ICustomer find(int id) {
         ICustomer customer = null;
-        
+       
         for (ICustomer c: customerList){
-            if (p.search(c.getId())){
-                customer = c;
-                break;
+            if (c.getId()==id){
+               return c;
             }
         }
         return customer;

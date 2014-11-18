@@ -4,12 +4,16 @@ import java.util.*;
 import project.framework.ui.Report;
 
 public class CustomerManager extends ACustomerManager {
+    public CustomerManager(){
+        
+    }
 
     @Override
     public void emailNotify() {
-
+        for (ICustomer a : customers) {
+            a.sendEmail();
+        }
     }
-    
     private List<ICustomer> customers = new Vector<ICustomer>();
 
     public boolean addCustomer(ICustomer customer) {
@@ -33,8 +37,5 @@ public class CustomerManager extends ACustomerManager {
         return myReport;
     }
 
-    @Override
-    public ICustomer find(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }

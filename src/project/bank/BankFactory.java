@@ -12,35 +12,23 @@ import project.framework.customer.ICustomer;
 import project.framework.customer.Organization;
 import project.framework.customer.Person;
 import project.framework.factory.AAbstractFactory;
+import project.framework.factory.Factory;
 
 /**
  *
  * @author Prakash
  */
-public class BankFactory extends AAbstractFactory {
+public class BankFactory extends Factory {
 
-    @Override
-    public ICustomer createCustomer(HashMap data) {
-        String type = "Person";
-
-        if (type == "Person") {
-            return new Person(data);
-        } else if (type == "Organization") {
-            return new Organization(data);
-        } else {
-            return null;
-        }
-    }
-
-    @Override
-    public IAccount createAccount(ICustomer c) {
-        String type = "Checking";
-        if (type == "Checking") {
+   @Override
+    public IAccount createAccount(ICustomer c, String type) {
+       
+        if (type.equalsIgnoreCase("checking")) {
             return new Checking(c);
-        } else if (type == "Saving") {
+        } else if (type.equalsIgnoreCase("saving")) {
             return new Saving(c);
         } else {
-            return null;
+            return super.createAccount(c, type);
         }
     }
 

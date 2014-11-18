@@ -1,5 +1,6 @@
 package project.framework;
 
+import java.util.HashMap;
 import java.util.List;
 import project.framework.account.IAccount;
 import project.framework.account.IAccountManager;
@@ -17,14 +18,26 @@ public class Controller implements IController {
     private ITransactionManager transactionServiceManager;
     private IAccountManager accountServiceManager;
     private ICustomerManager customerServiceManager;
-    private IAbstractFactory abstractFactory;
+    private IAbstractFactory creationServiceManager;
+        private IUImanager uiServiceManager;
+
+            public void setUIServiceManager(IUImanager iui){
+                uiServiceManager=iui;
+            }
+
+
+    public ITransaction createTransaction(IAccount a, String type, double amount) {
+
+        return creationServiceManager.createTransaction(a, type, amount);
+    }
+
     public IAccount findAccount(int id) {
         return accountServiceManager.find(id);
     }
 
-            public void addInterest(){
-                accountServiceManager.addInterest();
-            }
+    public void addInterest() {
+        accountServiceManager.addInterest();
+    }
 
     public void setCustomerServiceManager(ICustomerManager icm) {
         customerServiceManager = icm;
@@ -38,18 +51,23 @@ public class Controller implements IController {
         accountServiceManager = iam;
     }
 
+    public void setCreationServiceManager(IAbstractFactory iaf) {
+        creationServiceManager = iaf;
+    }
+
     public ITransactionManager getTransactionServiceManager() {
         return transactionServiceManager;
     }
 
-//    public ICustomer findCustomer(int id) {
-//        Predicate<Integer> p = new SearchById(id);
-//        return this.customerServiceManager.find(id, p);
-//    }
-//
-//  
     public Controller() {
+    }
 
+    public ICustomer createCustomer(HashMap data, String type) {
+        return this.creationServiceManager.createCustomer(data,type);
+    }
+
+    public IAccount createAccount(ICustomer c, String type) {
+        return this.creationServiceManager.createAccount(c,type);
     }
 
     public void requestTransaction(ITransaction t) {
@@ -94,13 +112,8 @@ public class Controller implements IController {
 //    public void setAbstractFactory(IAbstractFactory abstractFactory) {
 //        this.abstractFactory = abstractFactory;
 //    }
-    public boolean executeTransaction(int accountNumber, double amount, String type) {
-        IAccount account = accountServiceManager.find(accountNumber);
-        if (account != null) {
-            abstractFactory.createTransaction(account, type, amount);
-            return true;
-        }
-        return false;
+    public void executeTransaction(ITransaction tran) {
+        this.transactionServiceManager.equals(tran);
     }
 
     public Report getReport() {

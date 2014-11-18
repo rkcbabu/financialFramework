@@ -10,12 +10,14 @@ public abstract class ACustomer implements ICustomer {
     protected String phone;
     Address customerAddress;
     private static int id;
+    protected String email;
 
     private Vector<IAccount> accountList = new Vector();
 
-    public ACustomer(String n, String p) {
-        name = n;
-        phone = p;
+    public ACustomer(String name, String phone,String email) {
+        this.name = name;
+       this. phone = phone;
+        this.email=email;
         id++;
     }
 

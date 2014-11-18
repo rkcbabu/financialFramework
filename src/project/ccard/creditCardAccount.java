@@ -50,6 +50,10 @@ public  class creditCardAccount extends AAccount{
         balance=(1+montlyInterest)*balance;
     
     }
+   
+    public void sendEmail(){
+        
+    }
     
    
    

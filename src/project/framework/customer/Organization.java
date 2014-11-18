@@ -12,7 +12,7 @@ public class Organization extends ACustomer implements ICustomer, IOrganization 
          return "organization";
      }
     public Organization(HashMap<String, String> data) {
-        super(data.get("name"), data.get("phone"));
+        super(data.get("name"), data.get("phone"),data.get("email"));
         customerAddress = new Address(data.get("street"), data.get("city"), data.get("state"), data.get("zip"));
     }
 

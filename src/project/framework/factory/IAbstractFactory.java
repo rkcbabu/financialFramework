@@ -9,9 +9,9 @@ public interface IAbstractFactory {
 
 	public   ITransaction createTransaction(IAccount a, String type, double amount);
 
-	public  IAccount createAccount(ICustomer c);
+	public  IAccount createAccount(ICustomer c, String type);
 
-	public   ICustomer createCustomer(HashMap data);
+	public   ICustomer createCustomer(HashMap data, String type);
 
 	
 

@@ -16,5 +16,9 @@ public class Withdraw extends ATransaction {
     public void undo() {
         account.deposit(amount);
     }
+ @Override
+    public String getType() {
+    return "withdraw";
+    }
 
 }

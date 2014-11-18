@@ -7,12 +7,7 @@ import project.framework.transaction.*;
 
 public abstract  class AAbstractFactory implements IAbstractFactory {
 
-	public ICustomer createTempCustomer(HashMap data) {
-
-                ICustomer cus=new Person(data);
-                return cus;
-	}
-
+	
 
 	/**
 	 * @see IAbstractFactory#createTransaction(IAccount, java.lang.String)
@@ -21,6 +16,15 @@ public abstract  class AAbstractFactory implements IAbstractFactory {
             
             return null;
 	}
+          @Override
+    public ICustomer createCustomer(HashMap data, String type) {
+
+        if(type.equalsIgnoreCase("organization"))
+            return new Organization(data);
+        else
+        return new Person(data);
+    }
+
 
 
 	/**
@@ -33,5 +37,4 @@ public abstract  class AAbstractFactory implements IAbstractFactory {
 	/**
 	 * @see IAbstractFactory#createCustomer()
 	 */
-	public  abstract ICustomer createCustomer(HashMap data);
 }

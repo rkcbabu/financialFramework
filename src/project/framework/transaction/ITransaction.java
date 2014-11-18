@@ -5,8 +5,9 @@ import project.framework.account.IAccount;
 public interface ITransaction {
 
 //	private IAccount iAccount;
-    public abstract void execute();
+    public  void execute();
 
-    public abstract void undo();
+    public  void undo();
+    public String getType();
 
 }

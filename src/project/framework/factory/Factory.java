@@ -24,9 +24,10 @@ public  class Factory extends AAbstractFactory {
     
 
     @Override
-    public IAccount createAccount(ICustomer c) {
+    public IAccount createAccount(ICustomer c, String type) {
         
       
+        
        
         IAccount acc=new Account(c);
         return acc;
@@ -37,13 +38,11 @@ public  class Factory extends AAbstractFactory {
         
     }
 
-    @Override
-    public ICustomer createCustomer(HashMap data) {
-
-    return new Person(data);
-    }
-
+  
     
+   
+
+   
 
     
 

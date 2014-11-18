@@ -1,53 +1,22 @@
 package project.framework.customer;
 
+import java.util.HashMap;
 import project.framework.account.IAccount;
 
 public class Organization extends ACustomer implements ICustomer, IOrganization {
 
-//	public abstract int getEmployeeCount();
+    protected int numEmployess;
 
+    public Organization(HashMap<String, String> data) {
+        super(data.get("name"), data.get("phone"));
+        customerAddress = new Address(data.get("street"), data.get("city"), data.get("state"), data.get("zip"));
+    }
 
-	/**
-	 * @see ICustomer#getInfo()
-	 * 
-	 *  
-	 */
-	public String getInfo() {
-		return null;
-	}
-
-
-	/**
-	 * @see ICustomer#addAccount(IAccount)
-	 */
-	public void addAccount(IAccount acc) {
-
-	}
-
-
-	/**
-	 * @see ICustomer#removeAccount(IAccount)
-	 */
-	public void removeAccount(IAccount acc) {
-
-	}
-
-
-	/**
-	 * @see ICustomer#sendEmail()
-	 * 
-	 *  
-	 */
-	public void sendEmail() {
-
-	}
-
-
-	/**
-	 * @see IOrganization#operation2()
-	 */
-	public void operation2() {
-
-	}
+    /**
+     * @see IOrganization#getEmployeeCount()
+     */
+    public int getEmployeeCount() {
+        return numEmployess;
+    }
 
 }

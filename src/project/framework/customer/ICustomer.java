@@ -13,5 +13,7 @@ public interface ICustomer {
 	public abstract void removeAccount(IAccount acc);
 
 	public abstract void sendEmail();
+        
+        public abstract int getId();
 
 }

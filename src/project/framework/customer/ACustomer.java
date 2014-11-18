@@ -1,5 +1,6 @@
 package project.framework.customer;
 
+import java.util.Date;
 import java.util.Vector;
 import project.framework.account.IAccount;
 
@@ -7,7 +8,16 @@ public abstract class ACustomer implements ICustomer {
 
     protected String name;
     protected String phone;
+    Address customerAddress;
+    private static int id;
+
     private Vector<IAccount> accountList = new Vector();
+
+    public ACustomer(String n, String p) {
+        name = n;
+        phone = p;
+        id++;
+    }
 
     /**
      *
@@ -28,8 +38,7 @@ public abstract class ACustomer implements ICustomer {
     }
 
     /**
-     * @return 
-     * @see ICustomer#getInfo()
+     * @return @see ICustomer#getInfo()
      *
      *
      */
@@ -47,4 +56,7 @@ public abstract class ACustomer implements ICustomer {
 
     }
 
+    public int getId() {
+        return id;
+    }
 }

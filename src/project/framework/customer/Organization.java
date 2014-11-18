@@ -2,6 +2,7 @@ package project.framework.customer;
 
 import java.util.HashMap;
 import project.framework.account.IAccount;
+import project.framework.ui.Report;
 
 public class Organization extends ACustomer implements ICustomer, IOrganization {
 
@@ -17,6 +18,11 @@ public class Organization extends ACustomer implements ICustomer, IOrganization 
      */
     public int getEmployeeCount() {
         return numEmployess;
+    }
+
+    @Override
+    public Report getReport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

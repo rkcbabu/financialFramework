@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/ccard/CardFrm.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/ccard/JDialog_AddCCAccount.java</file>
+            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/account/IAccountManager.java</file>
+            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/FrameworkClient.java</file>
+            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/customer/ICustomerManager.java</file>
+            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/customer/CustomerManager.java</file>
+            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/Controller.java</file>
+            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/Application.java</file>
         </group>
     </open-files>
 </project-private>

@@ -15,7 +15,7 @@ public abstract class AAccount implements IAccount {
 
    
      public int getId(){
-         return 1;
+         return id;
      }
    
     public double getBalance() {

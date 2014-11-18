@@ -7,7 +7,7 @@ import project.framework.transaction.ITransaction;
 
 public interface IAbstractFactory {
 
-	public   ITransaction createTransaction(IAccount a, String type,double amount);
+	public   ITransaction createTransaction(IAccount a, String type, double amount);
 
 	public  IAccount createAccount(ICustomer c);
 

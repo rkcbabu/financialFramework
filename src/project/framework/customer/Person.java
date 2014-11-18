@@ -2,6 +2,7 @@ package project.framework.customer;
 
 import java.util.Date;
 import java.util.HashMap;
+import project.framework.ui.Report;
 
 public class Person extends ACustomer implements IPerson {
     
@@ -14,6 +15,11 @@ public class Person extends ACustomer implements IPerson {
 
     public Date getBirthdate() {
         return dob;
+    }
+
+    @Override
+    public Report getReport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

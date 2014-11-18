@@ -1,11 +1,8 @@
 package project.framework;
 
 import java.util.List;
-import project.framework.account.Account;
-import project.framework.account.AccountManager;
 import project.framework.account.IAccount;
 import project.framework.account.IAccountManager;
-import project.framework.customer.CustomerManager;
 import project.framework.customer.ICustomer;
 import project.framework.customer.ICustomerManager;
 import project.framework.factory.IAbstractFactory;
@@ -13,28 +10,33 @@ import project.framework.factory.IAbstractFactory;
 //import project.framework.search.SearchById;
 import project.framework.transaction.ITransaction;
 import project.framework.transaction.ITransactionManager;
-import project.framework.transaction.TransactionManager;
+import project.framework.ui.Report;
 
 public class Controller implements IController {
 
     private ITransactionManager transactionServiceManager;
     private IAccountManager accountServiceManager;
     private ICustomerManager customerServiceManager;
-
+    private IAbstractFactory abstractFactory;
     public IAccount findAccount(int id) {
         return accountServiceManager.find(id);
     }
-    
-     public void setCustomerServiceManager(ICustomerManager icm){
-         customerServiceManager=icm;
-     }
-        public void setTransactionServiceManager(ITransactionManager itm){
-            transactionServiceManager=itm;
-        }
-        public void setAccountServiceManager(IAccountManager iam){
-            accountServiceManager=iam;
-        }
-       
+
+    public void setCustomerServiceManager(ICustomerManager icm) {
+        customerServiceManager = icm;
+    }
+
+    public void setTransactionServiceManager(ITransactionManager itm) {
+        transactionServiceManager = itm;
+    }
+
+    public void setAccountServiceManager(IAccountManager iam) {
+        accountServiceManager = iam;
+    }
+
+    public ITransactionManager getTransactionServiceManager() {
+        return transactionServiceManager;
+    }
 
 //    public ICustomer findCustomer(int id) {
 //        Predicate<Integer> p = new SearchById(id);
@@ -42,11 +44,8 @@ public class Controller implements IController {
 //    }
 //
 //  
-
     public Controller() {
-       
-       
-       
+
     }
 
     public void requestTransaction(ITransaction t) {
@@ -68,12 +67,39 @@ public class Controller implements IController {
 
     @Override
     public List<IAccount> getAllAccounts() {
-       
+
         return this.accountServiceManager.getAll();
     }
 
-    @Override
     public ICustomer findCustomer(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return customerServiceManager.find(id);
+    }
+
+    public void setTransactionManager(ITransactionManager transactionManager) {
+        this.transactionServiceManager = transactionManager;
+    }
+
+    public void setAccountManager(IAccountManager accountManager) {
+        this.accountServiceManager = accountManager;
+    }
+
+    public void setCustomerManager(ICustomerManager customerManager) {
+        this.customerServiceManager = customerManager;
+    }
+
+//    public void setAbstractFactory(IAbstractFactory abstractFactory) {
+//        this.abstractFactory = abstractFactory;
+//    }
+    public boolean executeTransaction(int accountNumber, double amount, String type) {
+        IAccount account = accountServiceManager.find(accountNumber);
+        if (account != null) {
+            abstractFactory.createTransaction(account, type, amount);
+            return true;
+        }
+        return false;
+    }
+
+    public Report getReport() {
+        return customerServiceManager.getReport();
     }
 }

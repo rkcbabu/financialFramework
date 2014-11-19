@@ -4,9 +4,9 @@ package project.framework.transaction;
 import project.framework.transaction.Transaction;
 import project.framework.account.IAccount;
 
-public class Withdrawal extends Transaction{
+public class Withdraw extends Transaction{
 
-	public Withdrawal(IAccount account, Double amount, String name) {
+	public Withdraw(IAccount account, Double amount, String name) {
 		super(account, -amount, name);
 	}
 

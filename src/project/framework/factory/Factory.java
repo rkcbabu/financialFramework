@@ -1,7 +1,7 @@
 package project.framework.factory;
 
 import project.framework.transaction.Deposit;
-import project.framework.transaction.Withdrawal;
+import project.framework.transaction.Withdraw;
 import project.framework.account.Account;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +65,7 @@ public class Factory extends AbstractFactory{
 			return new Deposit(account, amount, "");
 		}
 		else{
-			return new Withdrawal(account, amount, "");
+			return new Withdraw(account, amount, "");
 		}
 	}
 

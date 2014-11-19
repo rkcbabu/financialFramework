@@ -1,28 +1,46 @@
 package project.framework.customer;
 
-import java.util.Date;
+import project.framework.customer.ACustomer;
 import java.util.HashMap;
-import project.framework.ui.Report;
+import java.util.Map;
 
-public class Person extends ACustomer implements IPerson {
-    
-    Date dob = null;
 
-     public String getType(){
-         return "person";
-     }
-    public Person(HashMap<String, String> data) {
-        super(data.get("name"), data.get("phone"),data.get("email"));
-        customerAddress = new Address(data.get("street"), data.get("city"), data.get("state"), data.get("zip"));
-    }
+import project.framework.account.IAccount;
+import project.framework.transaction.Transaction;
+import project.framework.reporting.Report;
 
-    public Date getBirthdate() {
-        return dob;
-    }
 
-    @Override
-    public Report getReport() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public class Person extends ACustomer   {
+	private String dob;
+	public Person(Address address, String name, String email, String dob) {
+		super(address, name, email);
+		this.dob = dob;
+		
+	}
+
+	@Override
+	public boolean checkEmailSendingCondition(Transaction transaction) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Person";
+	}
+
+	@Override
+	public Report getReport() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("Name", getName());
+		map.put("Customer Type", getType());
+		Report myReport = new Report(map);
+		for(IAccount a: getAllAccount()){
+			myReport.addChildReport(a.getReport());
+		}
+		return myReport;
+	}
+	
 
 }

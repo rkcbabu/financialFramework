@@ -1,18 +1,14 @@
 package project.framework.transaction;
 
-import project.framework.*;
+
+//import creditcard.ReportComputer;
+import project.framework.transaction.Transaction;
+import project.framework.reporting.Report;
 
 public interface ITransactionManager {
 
-//	private ITransactionHistory iTransactionHistory;
-//
-//	private ITransaction iTransaction;
-    public abstract void save(ITransaction t);
-
-    public abstract void request(ITransaction t);
-
-    public abstract void undo();
-
-    public abstract void generateReport();
-
+	public void addTransaction(Transaction transaction);
+	public void addTransactionTemplate(Transaction transaction);
+//	public void computeReport(IAccount account,ReportComputer reportComputer);
+	public Report getReport();
 }

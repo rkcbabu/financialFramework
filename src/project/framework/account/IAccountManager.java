@@ -2,21 +2,14 @@ package project.framework.account;
 
 import java.util.List;
 
+
+import project.framework.Controller;
+
 public interface IAccountManager {
-
-//	private IAccount iAccount;
-
-	public  void add(IAccount acc);
-
-	public  IAccount find(int id);
-
-	public  List<IAccount>  getAll();
-        
-        public void remove(IAccount acc);
-          public void addInterest();
-
-       
-        
-
-
+	
+	public void addAccount(IAccount account);
+	public IAccount findAccount(int account_no);
+	public List<IAccount> getAllAccounts();
+	public void setAccountChanged() ;
+	public void setController(Controller controller);
 }

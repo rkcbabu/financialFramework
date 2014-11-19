@@ -1,16 +1,23 @@
 package project.framework.ui;
 
+import project.framework.factory.IUIFactory;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.util.List;
 import java.util.Vector;
 
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
-//import framework.interfaces.IDataSet;
+import project.framework.IDataSet;
 
-public class MainView extends JFrame {
+public abstract class MainView extends JFrame {
 
 	private JButton reportButton;
 	private IUIFactory uiFactory;

@@ -1,51 +1,64 @@
 package project.framework.account;
 
+import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
+import project.framework.transaction.ITransactionManager;
 
-public abstract class AAccount implements IAccount {
 
-    protected double balance;
-    ICustomer customer;
-    private static int id;
-
-    public abstract void addInterest();
-
-     public  void sendEmail(){
-        this.getCustomer().sendEmail();
-    }
-    
-  public ICustomer getCustomer(){
-      return customer;
-  }
-    public AAccount(ICustomer cus) {
-        id++;
-        customer = cus;  }
-
-   
-     public int getId(){
-         return id;
-     }
-   
-    public double getBalance() {
-        return balance;
-    }
-
-    /**
-     * @see IAccount#deposit()
-     *
-     *
-     */
-    public void deposit(double amt) {
-        balance += amt;
-    }
-
-    /**
-     * @see IAccount#withdraw()
-     *
-     *
-     */
-    public void withdraw(double amt) {
-        if((balance-amt)>=0)
-        balance -= amt;
-    }
+public abstract class AAccount implements IAccount{
+	
+	private static int accountNumberGenerator = 123456;
+	private int accountNumber;
+	private double currentBalance;
+	protected ICustomer customer;
+	protected IAccountManager accountManager;
+	protected ITransactionManager transactionManger;
+	
+	public AAccount(int acc_no, ICustomer customer) {
+		super();
+		this.accountNumber = acc_no;
+		this.customer = customer;	
+	}
+	
+	public AAccount(ICustomer customer){
+		this.customer = customer;	
+		accountNumber = accountNumberGenerator;
+		accountNumberGenerator++;
+		
+	}
+	
+	@Override
+	public final void setManagers(IAccountManager accountManger,ITransactionManager transactionManager){
+		this.accountManager = accountManger;
+		this.transactionManger = transactionManager;
+	}
+	@Override
+	public final void addBalance(double amount){
+		currentBalance+=amount;
+	}
+	@Override
+	public final int getAccountNumber() {
+		return accountNumber;
+	}
+	@Override
+	public final double getCurrentBalance() {
+		return currentBalance;
+	}
+	@Override
+	public final ICustomer getCustomer() {
+		return customer;
+	}
+	@Override
+	public final void notifyCustomer(Transaction transaction){
+		customer.sendEmail(transaction, this);
+	}
+	@Override
+	public final  void setChanged(){
+		accountManager.setAccountChanged();
+	}
+	@Override
+	public String getExpiryDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

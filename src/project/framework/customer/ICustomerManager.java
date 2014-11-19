@@ -1,21 +1,19 @@
 package project.framework.customer;
 
+import project.framework.customer.ICustomer;
 import java.util.List;
-import project.framework.ui.Report;
-import project.frameworksearch.Predicate;
+
+
+import project.framework.Controller;
+import project.framework.reporting.Report;
 
 public interface ICustomerManager {
-
-	public  void add(ICustomer cus);
-
-	public  ICustomer find(int id);
-
-	public  List<ICustomer> getAll();
-
-	public  String getType();
-
-	public  void emailNotify();
-        
-            public Report getReport();
-
+	public boolean addCustomer(ICustomer customer);
+	public boolean submitCustomer(ICustomer customer);
+	public void setController(Controller controller);
+	
+        public ICustomer findCustomer(String name);
+	public List<ICustomer> getAllCustomer();
+	//public void setChanged() ;
+	public Report getReport();
 }

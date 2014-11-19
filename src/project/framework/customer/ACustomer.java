@@ -1,65 +1,67 @@
 package project.framework.customer;
 
-import java.util.Date;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
+
 import project.framework.account.IAccount;
+import project.framework.transaction.Transaction;
 
-public abstract class ACustomer implements ICustomer {
+public abstract class ACustomer implements ICustomer{
+	private Address address;
+	private String name;
+	private String email;
+	
+	private List<IAccount> accounts = new ArrayList<IAccount>();
+	
 
-    protected String name;
-    protected String phone;
-    Address customerAddress;
-    private static int id;
-    protected String email;
+	public ACustomer(Address address, String name, String email) {
+		super();
+		this.address = address;
+		this.name = name;
+		this.email = email;
+	}
+	
+	@Override
+	public boolean addAccount(IAccount account) {
+		accounts.add(account);
+		return true;
+	}
+	
+	@Override
+	public boolean removeAccount(IAccount account) {
+		return accounts.remove(account);
+	}
+	
+	@Override
+	public List<IAccount> getAllAccount() {
+		return accounts;
+	}
+	
+	@Override
+	public boolean sendEmail(Transaction transaction, IAccount account) {
+		
+		return false;
+	}
+	@Override
+	public abstract boolean checkEmailSendingCondition(Transaction transaction); 
+	@Override
+	public abstract String getType();
 
-    private Vector<IAccount> accountList = new Vector();
+	@Override
+	public Address getAddress() {
+		return address;
+	}
 
-    public ACustomer(String name, String phone,String email) {
-        this.name = name;
-       this. phone = phone;
-        this.email=email;
-        id++;
-    }
+	@Override
+	public String getName() {
+		return name;
+	}
 
-    /**
-     *
-     * @param acc
-     */
-    @Override
-    public void addAccount(IAccount acc) {
-        accountList.add(acc);
-    }
+	@Override
+	public String getEmail() {
+		return email;
+	}
+	
+	
 
-    /**
-     *
-     * @param acc
-     */
-    @Override
-    public void removeAccount(IAccount acc) {
-        accountList.remove(acc);
-    }
-
-    /**
-     * @return @see ICustomer#getInfo()
-     *
-     *
-     */
-    @Override
-    public String getInfo() {
-        return name;
-    }
-
-    /**
-     * @see ICustomer#sendEmail()
-     *
-     *
-     */
-    public void sendEmail() {
-
-        System.out.println("Email sent to customer ");
-    }
-
-    public int getId() {
-        return id;
-    }
 }

@@ -1,18 +1,34 @@
 package project.framework.factory;
-import java.util.HashMap;
-import project.framework.account.*;
-import project.framework.customer.*;
 
-import project.framework.transaction.ITransaction;
+import project.framework.account.IAccountManager;
+import project.framework.account.IAccount;
+import java.util.List;
+
+
+import project.app.FormModel;
+import project.framework.customer.ACustomer;
+import project.framework.transaction.Transaction;
+import project.framework.customer.ICustomer;
+import project.framework.customer.ICustomerManager;
+import project.framework.IDataSet;
+import project.framework.transaction.ITransactionManager;
+import project.framework.reporting.IReportComputer;
 
 public interface IAbstractFactory {
-
-	public   ITransaction createTransaction(IAccount a, String type, double amount);
-
-	public  IAccount createAccount(ICustomer c, String type);
-
-	public   ICustomer createCustomer(HashMap data, String type);
-
+	public IReportComputer getReportComputer();
 	
+	public Transaction getTransaction(IAccount account,double amount,String type);
+	public Transaction createTransaction(IAccount account,double amount,String type);
+	
+	public ACustomer createCustomer(FormModel form, String customerType);
+	public void createCustomerTemplate(FormModel form, String customerType,String accountType);
+	
+	public IAccount createAccount(FormModel form, ICustomer customer,String accountType);
+	
+	public List<IDataSet> getDataSet(ICustomerManager customerManager);
+	
+	
+	public void setManagers(ICustomerManager customerManager,IAccountManager accountManager,ITransactionManager transactionManager);
+	public void createInterestTransactions(List<IAccount> account);
 
 }

@@ -1,24 +1,28 @@
 package project.framework.account;
 
+
+
+
+
+
+import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
+import project.framework.transaction.ITransactionManager;
+import project.framework.reporting.Report;
 
 public interface IAccount {
-
-//	private AccType accType;
-//
-//	private ICustomer iCustomer;
-//
-//	private AccountInfo accountInfo;
-//
-//	private ICustomer iCustomer;
-
-	public double getBalance();
-        public ICustomer getCustomer();
-        public void addInterest();
-	public void deposit(double amt);
-
-	public void withdraw(double amt);
-        public int getId();
-        public  void sendEmail();
-
+	public void setManagers(IAccountManager accountManger,ITransactionManager transactionManager);
+	
+	public void addBalance(double amount);
+	public int getAccountNumber(); 
+	public double getCurrentBalance();
+	public ICustomer getCustomer();
+	public void notifyCustomer(Transaction transaction);
+	public void setChanged();
+	public  String getType();
+	public Report getReport();
+	public String getExpiryDate();
+	
+	public double computeInterest();
+	
 }

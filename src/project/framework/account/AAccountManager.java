@@ -1,35 +1,25 @@
 package project.framework.account;
 
-import java.util.List;
-import java.util.Vector;
+import java.util.Observable;
 
-public abstract class AAccountManager implements IAccountManager {
 
-    Vector<IAccount> accountList;
+import project.framework.Controller;
 
-    public AAccountManager() {
-        
-        accountList = new Vector<IAccount>();
-      
+public abstract class AAccountManager extends Observable implements IAccountManager{
+    
+	private Controller controller;
+	
+	
+	@Override
+	public final void setController(Controller controller){
+		this.controller = controller;
+		addObserver(controller);
+	}
 
-    }
-    public void addInterest(){
-        
-        for(IAccount acc:accountList){
-            acc.addInterest();
-        }
-        
-    }
+	@Override
+	public final void setAccountChanged() {
+		setChanged();
+		notifyObservers();
+	}
 
-    public void add(IAccount acc) {
-        accountList.add(acc);
-    }
-
-    public abstract IAccount find(int id);
-
-    public abstract List<IAccount> getAll();
-
-    public void remove(IAccount acc) {
-        accountList.remove(acc);
-    }
 }

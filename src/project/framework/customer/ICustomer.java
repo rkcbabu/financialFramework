@@ -1,21 +1,32 @@
 package project.framework.customer;
 
 import project.framework.account.IAccount;
-import project.framework.ui.Report;
+import java.util.List;
+
+
+import project.framework.customer.Address;
+import project.framework.transaction.Transaction;
+import project.framework.reporting.Report;
 
 public interface ICustomer {
-
-//	private IAddress iAddress;
-    public abstract String getInfo();
-
-    public abstract void addAccount(IAccount acc);
-
-    public abstract void removeAccount(IAccount acc);
-
-    public abstract void sendEmail();
-
-    public abstract int getId();
-
-    public Report getReport();
-    public String getType();
+	public boolean addAccount(IAccount account);
+	
+	public boolean removeAccount(IAccount account);
+	
+	public boolean sendEmail(Transaction transaction,IAccount account);
+	
+	public boolean checkEmailSendingCondition(Transaction transaction);
+	
+	public List<IAccount> getAllAccount();
+	
+	public Address getAddress();
+	
+	public String getName();
+	
+	public String getEmail();
+	
+	public String getType();
+	
+	public Report getReport();
+	
 }

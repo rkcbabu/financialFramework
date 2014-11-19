@@ -22,18 +22,20 @@ public class Main {
         IAccountManager accountManager = new AccountManager();
         IAbstractFactory myFactory = new Factory();
 
-        Controller controller = new Controller(null);
-        controller.injectServiceProviders(customerManager,
-                accountManager, transactionManager, myFactory);
-
         MainView mainView = new AppMainView("Bank Application",
                 new DefaultUIFactory());
         UIController uiController = new UIController(mainView,
                 new AppFormDialogFactory());
+        Controller controller = new Controller(uiController);
+        
+        controller.injectServiceProviders(customerManager,
+                accountManager, transactionManager, myFactory);
+
+        
       
         
-        controller.setUIController(uiController);
-        uiController.setController(controller);
+//        controller.setUIController(uiController);
+//        uiController.setController(controller);
 
 //        FormModel crModel = getCrModel("Default", "Fairfield",
 //                "default@abc.com", "fairfield", "1000 N", "52556");

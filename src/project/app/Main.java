@@ -22,27 +22,27 @@ public class Main {
         IAccountManager accountManager = new AccountManager();
         IAbstractFactory myFactory = new Factory();
 
-        Controller controller = new Controller(null);
-        controller.injectServiceProviders(customerManager,
-                accountManager, transactionManager, myFactory);
-
         MainView mainView = new AppMainView("Finance Application",
                 new DefaultUIFactory());
         UIController uiController = new UIController(mainView,
                 new AppFormDialogFactory());
-      
         
-        controller.setUIController(uiController);
-        uiController.setController(controller);
-
-        FormModel crModel = getCrModel("Default", "Fairfield",
-                "default@abc.com", "fairfield", "1000 N", "52556");
-        uiController.registerCustomer(crModel);
+        Controller controller = new Controller(uiController);
+        
+        controller.injectServiceProviders(customerManager,
+                accountManager, transactionManager, myFactory);
+        
+////        controller.setUIController(uiController);
+////        uiController.setController(controller);
+//
+//        FormModel formData = getFormData("Default", "Fairfield",
+//                "default@abc.com", "fairfield", "1000 N", "52556");
+//        uiController.registerCustomer(formData);
 
         mainView.setVisible(true);
     }
 
-    private static FormModel getCrModel(String name, String city, String email,
+    private static FormModel getFormData(String name, String city, String email,
             String state, String street, String zip) {
         FormModel crModel = new FormModel();
         crModel.setName(name);

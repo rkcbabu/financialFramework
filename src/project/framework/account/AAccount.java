@@ -7,7 +7,7 @@ import project.framework.transaction.ITransactionManager;
 
 public abstract class AAccount implements IAccount{
 	
-	private static int accountNumberGenerator = 123456;
+	private static int aacNumberStart = 1000;
 	private int accountNumber;
 	private double currentBalance;
 	protected ICustomer customer;
@@ -22,8 +22,8 @@ public abstract class AAccount implements IAccount{
 	
 	public AAccount(ICustomer customer){
 		this.customer = customer;	
-		accountNumber = accountNumberGenerator;
-		accountNumberGenerator++;
+		accountNumber = aacNumberStart;
+		aacNumberStart++;
 		
 	}
 	

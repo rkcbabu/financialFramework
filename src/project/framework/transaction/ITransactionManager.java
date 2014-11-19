@@ -7,8 +7,8 @@ import project.framework.reporting.Report;
 
 public interface ITransactionManager {
 
-	public void addTransaction(Transaction transaction);
-	public void addTransactionTemplate(Transaction transaction);
+	public void save(Transaction transaction);
+	public void doTransaction(Transaction transaction);
 //	public void computeReport(IAccount account,ReportComputer reportComputer);
 	public Report getReport();
 }

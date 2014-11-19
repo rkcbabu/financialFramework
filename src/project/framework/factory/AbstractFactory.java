@@ -40,7 +40,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 			String type) {
 		
 		Transaction transaction = getTransaction(account, amount, type);
-		transactionManager.addTransactionTemplate(transaction);
+		transactionManager.doTransaction(transaction);
 		return transaction;
 	}
 	
@@ -49,7 +49,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 		for(IAccount account: accountList){
 			double interest = account.computeInterest();
 			Transaction transaction = getTransaction(account, interest,"addinterest");
-			transactionManager.addTransactionTemplate(transaction);
+			transactionManager.doTransaction(transaction);
 		}
 		
 	}

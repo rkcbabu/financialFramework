@@ -13,7 +13,7 @@ public class TransactionManager extends ATransactionManager{
 	private List<Transaction> transactions = new ArrayList<Transaction>();
 
 	@Override
-	public void addTransaction(Transaction transaction){
+	public void save(Transaction transaction){
 		transactions.add(transaction);
 	}
 

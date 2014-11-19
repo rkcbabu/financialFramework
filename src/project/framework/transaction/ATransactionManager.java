@@ -3,9 +3,9 @@ package project.framework.transaction;
 public abstract class ATransactionManager implements ITransactionManager{
 
 	@Override
-	public final void addTransactionTemplate(Transaction transaction) {
+	public final void doTransaction(Transaction transaction) {
 		transaction.execute();
-		addTransaction(transaction);
+		save(transaction);
 	}
 	
 }

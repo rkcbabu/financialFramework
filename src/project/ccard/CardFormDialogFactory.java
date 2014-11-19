@@ -7,9 +7,9 @@ import javax.swing.JDialog;
 import project.framework.factory.AbstractCRFactory;
 import project.framework.RegistrationActionListener;
 
-public class AppFormDialogFactory extends AbstractCRFactory {
+public class CardFormDialogFactory extends AbstractCRFactory {
 
-	public AppFormDialogFactory() {
+	public CardFormDialogFactory() {
 		super();
 	}
 

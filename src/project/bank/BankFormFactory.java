@@ -5,9 +5,9 @@ import project.framework.RegistrationActionListener;
 import project.framework.factory.AbstractCRFactory;
 
 
-public class BankCRFactory extends AbstractCRFactory {
+public class BankFormFactory extends AbstractCRFactory {
 
-	public BankCRFactory() {
+	public BankFormFactory() {
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package project.framework.transaction;
 
-import project.app.Utils;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import project.framework.account.IAccount;
 
 public abstract class Transaction implements ITransaction{
@@ -12,7 +13,7 @@ public abstract class Transaction implements ITransaction{
 	public Transaction(IAccount account,Double amount, String name) {
 		super();
 		this.account =account;
-		this.date = Utils.getDate();
+		this.date = (new SimpleDateFormat("yyyy/MM/dd")).format(Calendar.getInstance().getTime());
 		this.amount = amount;
 		this.name = name;
 		

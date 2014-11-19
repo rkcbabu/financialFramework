@@ -75,6 +75,7 @@ public class Controller implements IController, Observer {
 		List<IAccount> accounts = accountServiceManager.getAll();
 		for(IAccount account: accounts){
 			double interest = account.computeInterest();
+                        System.out.println(interest);
 			creationServiceManager.createTransaction(account, interest, "addinterest");
 		}
 	}

@@ -33,7 +33,7 @@ public class SavingAccount extends Account{
 
 	@Override
 	public double computeInterest() {
-		return getCurrentBalance()*interestRate;
+		return getCurrentBalance()*interestRate/100;
 	}
 
 }

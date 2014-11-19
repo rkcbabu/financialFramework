@@ -12,10 +12,10 @@ import project.framework.UIController;
 /**
  * A basic JFC based application.
  */
-public class AppMainView extends MainView {
+public class CardMainView extends MainView {
 	private JTable table;
 
-	public AppMainView(String title, IUIFactory iuiFactory) {
+	public CardMainView(String title, IUIFactory iuiFactory) {
 		super(title, iuiFactory);
 
 	}
@@ -37,10 +37,10 @@ public class AppMainView extends MainView {
 
 			// Create a new instance of our application's frame, and make it
 			// visible.
-			AppMainView mainView = new AppMainView(
+			CardMainView mainView = new CardMainView(
 					"Finance Application", new DefaultUIFactory());
 			mainView.setVisible(true);
-			new UIController(mainView, new AppFormDialogFactory());
+			new UIController(mainView, new CardFormDialogFactory());
 		} catch (Throwable t) {
 			t.printStackTrace();
 			// Ensure the application exits with an error condition.
@@ -69,7 +69,7 @@ public class AppMainView extends MainView {
 		@Override
 		public void windowClosing(java.awt.event.WindowEvent event) {
 			Object object = event.getSource();
-			if (object == AppMainView.this)
+			if (object == CardMainView.this)
 				BankFrm_windowClosing(event);
 		}
 	}

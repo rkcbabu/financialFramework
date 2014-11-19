@@ -25,10 +25,10 @@ public class Main {
         IAbstractFactory myFactory = new Factory();
 
        
-        MainView mainView = new AppMainView("Credit card Application",
+        MainView mainView = new CardMainView("Credit card Application",
                 new DefaultUIFactory());
         UIController uiController = new UIController(mainView,
-                new AppFormDialogFactory());
+                new CardFormDialogFactory());
       
         
      IController controller = new Controller();

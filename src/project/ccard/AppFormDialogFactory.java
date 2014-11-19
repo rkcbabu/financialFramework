@@ -1,7 +1,6 @@
 package project.ccard;
 
 import project.bank.*;
-import project.framework.FormDialog;
 import javax.swing.JDialog;
 
 

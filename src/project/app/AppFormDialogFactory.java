@@ -1,6 +1,7 @@
 package project.app;
 
 import javax.swing.JDialog;
+import project.framework.FormDialog;
 
 
 import project.framework.factory.AbstractCRFactory;

@@ -5,7 +5,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-import project.app.FormModel;
 import project.framework.factory.IAbstractFactory;
 import project.framework.account.IAccount;
 import project.framework.account.IAccountManager;

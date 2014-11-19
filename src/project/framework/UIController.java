@@ -4,8 +4,6 @@ package project.framework;
 import java.util.List;
 
 
-import project.app.FormModel;
-import project.app.TxnModel;
 import project.framework.reporting.Report;
 import project.framework.factory.AbstractCRFactory;
 import project.framework.ui.MainView;

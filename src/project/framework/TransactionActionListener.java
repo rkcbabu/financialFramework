@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import project.app.TxnDialog;
-import project.app.TxnModel;
 import project.framework.ui.AppButton;
 
 public class TransactionActionListener implements ActionListener {

@@ -3,9 +3,9 @@ package project.framework.factory;
 import project.framework.account.IAccountManager;
 import project.framework.account.IAccount;
 import java.util.List;
+import project.framework.FormModel;
 
 
-import project.app.FormModel;
 import project.framework.customer.ACustomer;
 import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;

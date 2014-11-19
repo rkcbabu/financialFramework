@@ -7,23 +7,23 @@ import project.framework.transaction.ITransactionManager;
 
 public abstract class AAccount implements IAccount{
 	
-	private static int aacNumberStart = 1000;
-	private int accountNumber;
+	
+	private int accId;
 	private double currentBalance;
 	protected ICustomer customer;
 	protected IAccountManager accountManager;
 	protected ITransactionManager transactionManger;
 	
-	public AAccount(int acc_no, ICustomer customer) {
+	public AAccount(int accId, ICustomer customer) {
 		super();
-		this.accountNumber = acc_no;
+		this.accId = accId;
 		this.customer = customer;	
 	}
 	
 	public AAccount(ICustomer customer){
 		this.customer = customer;	
-		accountNumber = aacNumberStart;
-		aacNumberStart++;
+		accId = 1;
+		accId++;
 		
 	}
 	
@@ -37,8 +37,8 @@ public abstract class AAccount implements IAccount{
 		currentBalance+=amount;
 	}
 	@Override
-	public final int getAccountNumber() {
-		return accountNumber;
+	public final int getId() {
+		return accId;
 	}
 	@Override
 	public final double getCurrentBalance() {

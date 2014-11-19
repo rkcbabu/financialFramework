@@ -36,7 +36,7 @@ public class Person extends ACustomer   {
 		map.put("Name", getName());
 		map.put("Customer Type", getType());
 		Report myReport = new Report(map);
-		for(IAccount a: getAllAccount()){
+		for(IAccount a: getAll()){
 			myReport.addChildReport(a.getReport());
 		}
 		return myReport;

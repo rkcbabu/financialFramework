@@ -22,18 +22,18 @@ public abstract class ACustomer implements ICustomer{
 	}
 	
 	@Override
-	public boolean addAccount(IAccount account) {
+	public boolean add(IAccount account) {
 		accounts.add(account);
 		return true;
 	}
 	
 	@Override
-	public boolean removeAccount(IAccount account) {
+	public boolean remove(IAccount account) {
 		return accounts.remove(account);
 	}
 	
 	@Override
-	public List<IAccount> getAllAccount() {
+	public List<IAccount> getAll() {
 		return accounts;
 	}
 	

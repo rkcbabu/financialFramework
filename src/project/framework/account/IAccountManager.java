@@ -7,9 +7,9 @@ import project.framework.Controller;
 
 public interface IAccountManager {
 	
-	public void addAccount(IAccount account);
-	public IAccount findAccount(int account_no);
-	public List<IAccount> getAllAccounts();
+	public void add(IAccount account);
+	public IAccount find(int account_no);
+	public List<IAccount> getAll();
 	public void setAccountChanged() ;
 	public void setController(Controller controller);
 }

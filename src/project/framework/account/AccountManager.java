@@ -12,14 +12,14 @@ public class AccountManager extends AAccountManager{
 	private List<IAccount> accounts = new ArrayList<IAccount>();
 
 	@Override
-	public void addAccount(IAccount account) {
+	public void add(IAccount account) {
 		accounts.add(account);
 	}
 
 	@Override
-	public IAccount findAccount(int account_no) {
+	public IAccount find(int accNo) {
 		for (IAccount account : accounts) {
-			if (account.getAccountNumber() == account_no) {
+			if (account.getId() == accNo) {
 				return account;
 			}
 		}
@@ -27,7 +27,7 @@ public class AccountManager extends AAccountManager{
 	}
 
 	@Override
-	public List<IAccount> getAllAccounts() {
+	public List<IAccount> getAll() {
 		return accounts;
 	}
 

@@ -8,12 +8,13 @@ import java.util.List;
 import project.framework.transaction.ATransactionManager;
 import project.framework.transaction.Transaction;
 import project.framework.reporting.Report;
+import project.framework.transaction.ITransaction;
 
 public class TransactionManager extends ATransactionManager{
-	private List<Transaction> transactions = new ArrayList<Transaction>();
+	private List<ITransaction> transactions = new ArrayList<ITransaction>();
 
 	@Override
-	public void save(Transaction transaction){
+	public void save(ITransaction transaction){
 		transactions.add(transaction);
 	}
 

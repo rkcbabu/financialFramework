@@ -14,7 +14,7 @@ public interface IAccount {
 	public void setManagers(IAccountManager accountManger,ITransactionManager transactionManager);
 	
 	public void addBalance(double amount);
-	public int getAccountNumber(); 
+	public int getId(); 
 	public double getCurrentBalance();
 	public ICustomer getCustomer();
 	public void notifyCustomer(Transaction transaction);

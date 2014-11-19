@@ -15,23 +15,23 @@ public class CustomerManager extends ACustomerManager {
 	private List<ICustomer> customers = new ArrayList<ICustomer>();
 	
 	@Override
-	public boolean addCustomer(ICustomer customer){
+	public boolean add(ICustomer customer){
 		return customers.add(customer);
 	}
 	@Override
-	public ICustomer findCustomer(String name){
+	public ICustomer find(String name){
 		return null;
 		
 	}
 	@Override
-	public List<ICustomer> getAllCustomer(){
+	public List<ICustomer> getAll(){
 		return customers;
 		
 	}
 	@Override
 	public Report getReport() {
 		Map<String, String> map = new HashMap<String, String>();
-		List<ICustomer> customers= getAllCustomer();
+		List<ICustomer> customers= getAll();
 		map.put("Total Customers", ""+customers.size()+"");
 		Report myReport = new Report(map);
 		for(ICustomer c: customers){

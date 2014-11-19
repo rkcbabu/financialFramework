@@ -9,15 +9,15 @@ import project.framework.transaction.Transaction;
 import project.framework.reporting.Report;
 
 public interface ICustomer {
-	public boolean addAccount(IAccount account);
+	public boolean add(IAccount account);
 	
-	public boolean removeAccount(IAccount account);
+	public boolean remove(IAccount account);
 	
 	public boolean sendEmail(Transaction transaction,IAccount account);
 	
 	public boolean checkEmailSendingCondition(Transaction transaction);
 	
-	public List<IAccount> getAllAccount();
+	public List<IAccount> getAll();
 	
 	public Address getAddress();
 	

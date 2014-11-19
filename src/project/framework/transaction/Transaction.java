@@ -3,7 +3,7 @@ package project.framework.transaction;
 import project.app.Utils;
 import project.framework.account.IAccount;
 
-public abstract class Transaction {
+public abstract class Transaction implements ITransaction{
 	private String date;
 	protected double amount;
 	private String name;
@@ -26,10 +26,10 @@ public abstract class Transaction {
 	}
 	@Override
 	public String toString(){
-		return "*********************Trasnsaction***************"+"\n"+
-				"  "+"acount number:"+account.getAccountNumber()+"\n"+
+		return "*********************Trasnsaction details***************"+"\n"+
+				"  "+"acount ID:"+account.getId()+"\n"+
 				"  "+"         type: "+getType()+"\n"+
-				"  "+"amount added :"+amount;
+				"  "+"amount  :"+amount;
 	}
 	
 	public abstract String getType();

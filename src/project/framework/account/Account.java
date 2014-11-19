@@ -13,13 +13,13 @@ public class Account extends AAccount {
 	}
 	@Override
 	public String getType() {
-		return "default";
+		return "Account";
 	}
 
 	@Override
 	public Report getReport() {
 		Map<String,String> myReport = new HashMap<String, String>();
-		myReport.put("Account Number", ""+getAccountNumber()+"");
+		myReport.put("Account ID", ""+getId()+"");
 		myReport.put("Balance", ""+getCurrentBalance()+"");
 		return new Report(myReport);
 	}

@@ -6,6 +6,7 @@ import project.framework.factory.Factory;
 import project.framework.customer.CustomerManager;
 import project.framework.account.AccountManager;
 import project.framework.Controller;
+import project.framework.IController;
 import project.framework.factory.IAbstractFactory;
 import project.framework.account.IAccountManager;
 import project.framework.customer.ICustomerManager;
@@ -26,13 +27,13 @@ public class Main {
                 new DefaultUIFactory());
         UIController uiController = new UIController(mainView,
                 new AppFormDialogFactory());
-        Controller controller = new Controller(uiController);
         
-        controller.injectServiceProviders(customerManager,
-                accountManager, transactionManager, myFactory);
-
-        
-      
+        IController controller = new Controller();
+        controller.setAccountServiceManager(accountManager);
+        controller.setCustomerServiceManager(customerManager);
+        controller.setTransactionServiceManager(transactionManager);
+        controller.setCreationServiceManager(myFactory);
+        controller.setUIServiceController(uiController);
         
 //        controller.setUIController(uiController);
 //        uiController.setController(controller);

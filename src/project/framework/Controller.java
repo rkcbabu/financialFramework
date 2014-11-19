@@ -9,82 +9,80 @@ import project.framework.factory.IAbstractFactory;
 import project.framework.account.IAccount;
 import project.framework.account.IAccountManager;
 import project.framework.customer.ICustomerManager;
-import project.framework.ICellData;
 import project.framework.transaction.ITransactionManager;
 import project.framework.reporting.Report;
+import project.framework.transaction.ITransaction;
 
-public class Controller implements Observer {
+public class Controller implements IController, Observer {
 	private IAccountManager accountServiceManager;
 	private ICustomerManager customerServiceManager;
 	private ITransactionManager transactionServiceManager;
-	private IAbstractFactory abstractFactory;
+	private IAbstractFactory creationServiceManager;
 	private UIController uiController;
+        
+        
+         public void setCustomerServiceManager(ICustomerManager icm){
+             this.customerServiceManager=icm;
+             icm.setController(this);
+         }
+        
+        public void setTransactionServiceManager(ITransactionManager itm){
+            this.transactionServiceManager=itm;
+           
+        }
+        public void setAccountServiceManager(IAccountManager iam){
+            this.accountServiceManager=iam;
+            iam.setController(this);
+        }
+        public void setCreationServiceManager(IAbstractFactory iaf){
+            this.creationServiceManager=iaf;
+            iaf.setManagers(customerServiceManager, accountServiceManager, transactionServiceManager);
+        }
+        public void setUIServiceController(UIController iui){
+            this.uiController=iui;
+            iui.setController(this);
+        }
+        
 	
-	public Controller(UIController uiController ) {
-		abstractFactory = null; 
-		this.uiController = uiController;
-		if(uiController!=null)
-		uiController.setController(this);
+	public Controller( ) {
+		
 		
 	}
 	
-	public void injectServiceProviders(ICustomerManager customerManager,IAccountManager accountManager, 
-			ITransactionManager transactionManager,IAbstractFactory factory){
-		
-		this.abstractFactory = factory;
-		this.customerServiceManager = customerManager;
-		this.accountServiceManager = accountManager;
-		this.transactionServiceManager = transactionManager;
-		
-		
-		customerManager.setController(this);
-		accountManager.setController(this);
-		if(abstractFactory!=null){
-			abstractFactory.setManagers(customerManager, accountManager, transactionManager);
-		}
-		else
-			System.out.println("Factory not Set!!! Please set inject the factory");
-	}
-	
-	public void setUIController(UIController uiController){
-		this.uiController = uiController;
-	}
-	
-	public boolean executeTransaction(int accountNumber, double amount, String type){
-		IAccount account = accountServiceManager.findAccount(accountNumber);
+
+	public boolean executeTransaction(int accId, double amount, String type){
+		IAccount account = accountServiceManager.find(accId);
 		if(account!=null){
-				abstractFactory.createTransaction(account, amount, type);
+				ITransaction it=creationServiceManager.createTransaction(account, amount, type);
+                                it.execute();
 				return true;
 		}
 		return false;
 	}
 	
 	public boolean createCustomer(FormModel form, String customerType, String accountType ){
-		abstractFactory.createCustomerTemplate(form, customerType, accountType);		
+		creationServiceManager.createCustomer(form, customerType, accountType);		
 		return true;
 	}
 	
-	public void dataSetChanged(){
-		//List<IDataSet> dataSetList = abstractFactory.getDataSet(customerManager);
-		//viewController.updateTable(dataSetList);
-	}
+	
 	
 	public Report getReport(){
 		return customerServiceManager.getReport();
 	}
 	
 	public void addInterest(){
-		List<IAccount> accounts = accountServiceManager.getAllAccounts();
+		List<IAccount> accounts = accountServiceManager.getAll();
 		for(IAccount account: accounts){
 			double interest = account.computeInterest();
-			abstractFactory.createTransaction(account, interest, "addinterest");
+			creationServiceManager.createTransaction(account, interest, "addinterest");
 		}
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		List<ICellData> dataSetList = abstractFactory.getDataSet(customerServiceManager);
+		List<ICellData> dataSetList = creationServiceManager.getDataSet(customerServiceManager);
                 if(uiController == null){
                     System.err.println("uiController is not set");
                 }else

@@ -16,15 +16,12 @@ public abstract  class ACustomerManager extends Observable implements ICustomerM
 	
 	@Override
 	public final boolean submitCustomer(ICustomer customer) {
-		addCustomer(customer);
+		add(customer);
 		setChanged();
 		notifyObservers();
 		return true;
 	}
 	
-//	public final void  setChanged(){
-//		//frameworkController.dataSetChanged();
-//	}
-//	
+	
 
 }

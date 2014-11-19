@@ -8,12 +8,12 @@ import project.framework.Controller;
 import project.framework.reporting.Report;
 
 public interface ICustomerManager {
-	public boolean addCustomer(ICustomer customer);
+	public boolean add(ICustomer customer);
 	public boolean submitCustomer(ICustomer customer);
 	public void setController(Controller controller);
 	
-        public ICustomer findCustomer(String name);
-	public List<ICustomer> getAllCustomer();
+        public ICustomer find(String name);
+	public List<ICustomer> getAll();
 	//public void setChanged() ;
 	public Report getReport();
 }

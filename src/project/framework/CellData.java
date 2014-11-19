@@ -23,7 +23,7 @@ public class CellData implements ICellData<Integer>{
 		 Vector<String> newRow = new Vector<String>();
 	        newRow.add(customer.getName());
 	        //newRow.add(customer.getType());
-	        newRow.add(""+account.getAccountNumber()+"");
+	        newRow.add(""+account.getId()+"");
 	        //newRow.add(account.getType());
 	        newRow.add(""+account.getCurrentBalance()+"");
 	        return newRow;
@@ -31,7 +31,7 @@ public class CellData implements ICellData<Integer>{
 
 	@Override
 	public Integer getData() {
-		return account.getAccountNumber();
+		return account.getId();
 	}
 
 }

@@ -7,21 +7,21 @@ import project.framework.FormModel;
 
 
 import project.framework.customer.ACustomer;
-import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
 import project.framework.customer.ICustomerManager;
 import project.framework.ICellData;
 import project.framework.transaction.ITransactionManager;
 import project.framework.reporting.IReportComputer;
+import project.framework.transaction.ITransaction;
 
 public interface IAbstractFactory {
 	public IReportComputer getReportComputer();
 	
-	public Transaction getTransaction(IAccount account,double amount,String type);
-	public Transaction createTransaction(IAccount account,double amount,String type);
+	public ITransaction getTransaction(IAccount account,double amount,String type);
+	public ITransaction createTransaction(IAccount account,double amount,String type);
 	
-	public ACustomer createCustomer(FormModel form, String customerType);
-	public void createCustomerTemplate(FormModel form, String customerType,String accountType);
+	public ICustomer createCustomer(FormModel form, String customerType);
+	public void createCustomer(FormModel form, String customerType,String accountType);
 	
 	public IAccount createAccount(FormModel form, ICustomer customer,String accountType);
 	

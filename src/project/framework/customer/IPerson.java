@@ -1,8 +1,8 @@
 package project.framework.customer;
 
-import project.framework.customer.ICustomer;
+import java.util.Date;
 
 
 public abstract class IPerson implements ICustomer{
-
+public abstract Date getBirthdate();
 }

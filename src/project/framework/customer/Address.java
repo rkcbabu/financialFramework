@@ -13,5 +13,8 @@ public class Address {
 		this.state = state;
 	}
 	
+        public String toString(){
+            return street+","+city+","+zipCode+","+state;
+        }
 	
 }

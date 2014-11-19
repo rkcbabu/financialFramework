@@ -4,4 +4,5 @@ import project.framework.customer.ICustomer;
 
 public abstract class IOrganisation implements ICustomer {
 
+public abstract int getEmployeeCount();
 }

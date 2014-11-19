@@ -53,8 +53,8 @@ public class Controller implements IController, Observer {
 	public boolean executeTransaction(int accId, double amount, String type){
 		IAccount account = accountServiceManager.find(accId);
 		if(account!=null){
-				ITransaction it=creationServiceManager.createTransaction(account, amount, type);
-                                it.execute();
+				creationServiceManager.createTransaction(account, amount, type);
+                               
 				return true;
 		}
 		return false;

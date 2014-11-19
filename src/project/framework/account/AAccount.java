@@ -22,7 +22,7 @@ public abstract class AAccount implements IAccount{
 	
 	public AAccount(ICustomer customer){
 		this.customer = customer;	
-		accId = 1;
+		accId = 0;
 		accId++;
 		
 	}

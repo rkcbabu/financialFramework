@@ -21,6 +21,7 @@ public interface IController {
         public boolean executeTransaction(int accId, double amount, String type);
         public boolean createCustomer(FormModel form, String customerType, String accountType );
         public Report getReport();
+        public void addInterest();
 
 
 

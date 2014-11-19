@@ -26,7 +26,7 @@ public class Main {
         controller.injectServiceProviders(customerManager,
                 accountManager, transactionManager, myFactory);
 
-        MainView mainView = new AppMainView("Finance Application",
+        MainView mainView = new AppMainView("Bank Application",
                 new DefaultUIFactory());
         UIController uiController = new UIController(mainView,
                 new AppFormDialogFactory());
@@ -35,9 +35,9 @@ public class Main {
         controller.setUIController(uiController);
         uiController.setController(controller);
 
-        FormModel crModel = getCrModel("Default", "Fairfield",
-                "default@abc.com", "fairfield", "1000 N", "52556");
-        uiController.registerCustomer(crModel);
+//        FormModel crModel = getCrModel("Default", "Fairfield",
+//                "default@abc.com", "fairfield", "1000 N", "52556");
+//        uiController.registerCustomer(crModel);
 
         mainView.setVisible(true);
     }

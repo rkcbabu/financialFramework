@@ -10,7 +10,7 @@ import project.framework.customer.ACustomer;
 import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
 import project.framework.customer.ICustomerManager;
-import project.framework.IDataSet;
+import project.framework.ICellData;
 import project.framework.transaction.ITransactionManager;
 import project.framework.reporting.IReportComputer;
 
@@ -25,7 +25,7 @@ public interface IAbstractFactory {
 	
 	public IAccount createAccount(FormModel form, ICustomer customer,String accountType);
 	
-	public List<IDataSet> getDataSet(ICustomerManager customerManager);
+	public List<ICellData> getDataSet(ICustomerManager customerManager);
 	
 	
 	public void setManagers(ICustomerManager customerManager,IAccountManager accountManager,ITransactionManager transactionManager);

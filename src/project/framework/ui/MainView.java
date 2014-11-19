@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
-import project.framework.IDataSet;
+import project.framework.ICellData;
 
 public abstract class MainView extends JFrame {
 
@@ -25,7 +25,7 @@ public abstract class MainView extends JFrame {
 	private AbstractDynamicPanel trPanel;
 	protected Vector<String> columnNames;
 	protected JTable table;
-	private List<IDataSet> dataList;
+	private List<ICellData> dataList;
 
 	public MainView(String title, IUIFactory uiFactory) {
 		this.uiFactory = uiFactory;
@@ -82,10 +82,10 @@ public abstract class MainView extends JFrame {
 		return reportButton;
 	}
 
-	public void setTableModel(List<IDataSet> datasetList) {
+	public void setTableModel(List<ICellData> datasetList) {
 		this.dataList = datasetList;
 		Vector<Vector<String>> vector = new Vector<Vector<String>>();
-		for (IDataSet data : datasetList) {
+		for (ICellData data : datasetList) {
 			vector.add(data.toVector());
 		}
 		DefaultTableModel model = new DefaultTableModel(vector, columnNames);

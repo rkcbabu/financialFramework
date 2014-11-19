@@ -5,9 +5,9 @@ import javax.swing.BoxLayout;
 import project.framework.ui.AbstractDynamicPanel;
 import project.framework.ui.AppButton;
 
-public class DefaultTRPanel extends AbstractDynamicPanel {
+public class AppTxnPanel extends AbstractDynamicPanel {
 
-	public DefaultTRPanel() {
+	public AppTxnPanel() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		AppButton button = new AppButton("Deposit", "deposit");
 

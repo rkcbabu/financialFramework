@@ -4,15 +4,15 @@ import java.util.Vector;
 
 import project.framework.account.IAccount;
 import project.framework.customer.ICustomer;
-import project.framework.IDataSet;
+import project.framework.ICellData;
 
 
-public class DataSet implements IDataSet<Integer>{
+public class CellData implements ICellData<Integer>{
     public ICustomer customer;
     public IAccount account;
 	
     
-	public DataSet(ICustomer customer, IAccount account) {
+	public CellData(ICustomer customer, IAccount account) {
 		super();
 		this.customer = customer;
 		this.account = account;

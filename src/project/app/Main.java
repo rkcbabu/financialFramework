@@ -25,10 +25,10 @@ public class Main {
         controller.injectServiceProviders(customerManager,
                 accountManager, transactionManager, myFactory);
 
-        MainView mainView = new DefaultMainView("Finance Application",
+        MainView mainView = new AppMainView("Finance Application",
                 new DefaultUIFactory());
         UIController uiController = new UIController(mainView,
-                new DefaultCRDialogFactory());
+                new AppFormDialogFactory());
       
         
         controller.setUIController(uiController);

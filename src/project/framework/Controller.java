@@ -10,7 +10,7 @@ import project.framework.factory.IAbstractFactory;
 import project.framework.account.IAccount;
 import project.framework.account.IAccountManager;
 import project.framework.customer.ICustomerManager;
-import project.framework.IDataSet;
+import project.framework.ICellData;
 import project.framework.transaction.ITransactionManager;
 import project.framework.reporting.Report;
 
@@ -85,7 +85,7 @@ public class Controller implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		List<IDataSet> dataSetList = abstractFactory.getDataSet(customerServiceManager);
+		List<ICellData> dataSetList = abstractFactory.getDataSet(customerServiceManager);
                 if(uiController == null){
                     System.err.println("uiController is not set");
                 }else

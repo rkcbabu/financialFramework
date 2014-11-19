@@ -37,7 +37,7 @@ public class UIController {
 				new ReportActionListener(this));
 	}
 
-	public void updateTable(List<IDataSet> dataSetList) {
+	public void updateTable(List<ICellData> dataSetList) {
 		mainView.setTableModel(dataSetList);
 	}
 

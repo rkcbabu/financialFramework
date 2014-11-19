@@ -1,7 +1,7 @@
 package project.framework.factory;
 
-import project.app.DefaultCRPanel;
-import project.app.DefaultTRPanel;
+import project.app.AppFormPanel;
+import project.app.AppTxnPanel;
 import javax.swing.JButton;
 
 import project.framework.ui.AbstractDynamicPanel;
@@ -10,12 +10,12 @@ public class DefaultUIFactory implements IUIFactory {
 
 	@Override
 	public AbstractDynamicPanel createCRPanel() {
-		return new DefaultCRPanel();
+		return new AppFormPanel();
 	}
 
 	@Override
 	public AbstractDynamicPanel createTRPanel() {
-		return new DefaultTRPanel();
+		return new AppTxnPanel();
 	}
 
 	@Override

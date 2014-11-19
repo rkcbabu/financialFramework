@@ -1,7 +1,7 @@
 package project.framework.factory;
 
 import project.app.FormModel;
-import project.app.DataSet;
+import project.app.CellData;
 import project.framework.transaction.Deposit;
 import project.framework.transaction.Withdrawal;
 import project.framework.account.Account;
@@ -17,7 +17,7 @@ import project.framework.transaction.Transaction;
 import project.framework.account.IAccount;
 import project.framework.customer.ICustomer;
 import project.framework.customer.ICustomerManager;
-import project.framework.IDataSet;
+import project.framework.ICellData;
 import project.framework.reporting.IReportComputer;
 
 public class Factory extends AbstractFactory{
@@ -29,11 +29,11 @@ public class Factory extends AbstractFactory{
 	}
 
 	@Override
-	public List<IDataSet> getDataSet(ICustomerManager customerManager) {
-		List<IDataSet> list = new ArrayList<IDataSet>();
+	public List<ICellData> getDataSet(ICustomerManager customerManager) {
+		List<ICellData> list = new ArrayList<ICellData>();
 		for(ICustomer c:customerManager.getAllCustomer()){
 			for(IAccount a:c.getAllAccount()){
-				list.add(new DataSet(c, a));
+				list.add(new CellData(c, a));
 			}
 		}
 		return list;

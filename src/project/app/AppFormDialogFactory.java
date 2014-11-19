@@ -6,9 +6,9 @@ import javax.swing.JDialog;
 import project.framework.factory.AbstractCRFactory;
 import project.framework.RegistrationActionListener;
 
-public class DefaultCRDialogFactory extends AbstractCRFactory {
+public class AppFormDialogFactory extends AbstractCRFactory {
 
-	public DefaultCRDialogFactory() {
+	public AppFormDialogFactory() {
 		super();
 	}
 

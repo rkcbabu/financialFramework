@@ -9,7 +9,7 @@ import project.logic.IPredicate;
 import project.logic.IsCompany;
 
 public abstract class AAccount implements IAccount {
-
+    private static int StartAccNumber = 1000;
     private int accId;
     private double currentBalance;
     protected ICustomer customer;
@@ -19,7 +19,6 @@ public abstract class AAccount implements IAccount {
     protected IPredicate validator;
 
     public AAccount(int accId, ICustomer customer) {
-        super();
         this.accId = accId;
         this.customer = customer;
         transactionList=new ArrayList<>();
@@ -28,8 +27,8 @@ public abstract class AAccount implements IAccount {
 
     public AAccount(ICustomer customer) {
         this.customer = customer;
-       
-        accId++;
+       this.accId = StartAccNumber++;
+        //accId++;
          transactionList=new ArrayList<>();
 
     }

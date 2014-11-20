@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/bank/Main.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/pkg/framework/transaction/ATransactionManager.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/customer/CustomerManager.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/customer/Person.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/customer/ICustomer.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/Controller.java</file>
-            <file>file:/D:/Productions/GitHub/financialframwork/src/project/framework/transaction/ATransactionManager.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

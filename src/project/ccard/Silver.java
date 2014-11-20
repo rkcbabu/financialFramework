@@ -9,20 +9,27 @@ import project.framework.transaction.ITransaction;
 import project.logic.IsGreater;
 import project.logic.IsPerson;
 
-public class BronzeCCardAccount extends Account {
+public class Silver extends Account {
 
     private double monthlyInterest;
     private double monthlyPayment;
     private String expiryDate;
 
-    public BronzeCCardAccount(int acc_no, ICustomer customer, String expiryDate) {
+    public Silver(int acc_no, ICustomer customer, String expiryDate) {
         super( customer);
-        monthlyInterest = 0.1;
-        monthlyPayment = 0.14;
+        monthlyInterest = 0.08;
+        monthlyPayment = 0.12;
         this.expiryDate = expiryDate;
-
+        // TODO Auto-generated constructor stub
     }
-      @Override
+
+    @Override
+    public String getType() {
+        // TODO Auto-generated method stub
+        return "silver";
+    }
+
+     @Override
     public  void addBalance(ITransaction txn) {
        
         validator=new IsPerson();
@@ -36,19 +43,13 @@ public class BronzeCCardAccount extends Account {
         super.addBalance(txn);
         //currentBalance += amount;
     }
-
-    @Override
-    public String getType() {
-        // TODO Auto-generated method stub
-        return "bronze";
-    }
-
     @Override
     public Report getReport() {
         Map<String, String> myReport = new HashMap<String, String>();
         myReport.put("Account Number", "" + getId() + "");
         myReport.put("Account Type", "" + getType());
         myReport.put("*******Transactions********", "");
+
         Report report = new Report(myReport);
 
         ReportComputer reportComputer = new ReportComputer();
@@ -65,6 +66,7 @@ public class BronzeCCardAccount extends Account {
 
     @Override
     public double computeInterest() {
+        // TODO Auto-generated method stub
         return getCurrentBalance() * monthlyInterest;
     }
 

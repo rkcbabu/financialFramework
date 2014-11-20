@@ -9,13 +9,13 @@ import project.framework.transaction.ITransaction;
 import project.logic.IsGreater;
 import project.logic.IsPerson;
 
-public class GoldCCardAccount extends Account {
+public class Gold extends Account {
 
     private double monthlyInterest;
     private double monthlyPayment;
     private String expiryDate;
 
-    public GoldCCardAccount(int acc_no, ICustomer customer, String expiryDate) {
+    public Gold(int acc_no, ICustomer customer, String expiryDate) {
         super( customer);
         monthlyInterest = 0.06;
         monthlyPayment = 0.1;

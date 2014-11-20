@@ -58,11 +58,11 @@ public class CCardFactory extends AbstractFactory {
             CCAccountType accType = model.getCcAccountType();
             String expirydate = model.getExpDate();
             if (accType == CCAccountType.bronze) {
-                return new BronzeCCardAccount(ccNumber, customer, expirydate);
+                return new Bronze(ccNumber, customer, expirydate);
             } else if (accType == CCAccountType.silver) {
-                return new SilverCCardAccount(ccNumber, customer, expirydate);
+                return new Silver(ccNumber, customer, expirydate);
             } else if (accType == CCAccountType.gold) {
-                return new GoldCCardAccount(ccNumber, customer, expirydate);
+                return new Gold(ccNumber, customer, expirydate);
             }
         }
         return null;

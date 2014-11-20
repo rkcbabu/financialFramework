@@ -9,21 +9,16 @@ import project.framework.transaction.ITransaction;
 import project.logic.IsGreater;
 import project.logic.IsPerson;
 
-public class CheckingAccount extends Account {
+public class Saving extends Account {
 
     double interestRate;
 
-    public CheckingAccount(ICustomer customer, double irRate) {
+    public Saving(ICustomer customer, double irRate) {
         super(customer);
         this.interestRate = irRate;
     }
-
-    @Override
-    public String getType() {
-        return BankInformation.CHECKING;
-    }
     
-     @Override
+      @Override
     public  void addBalance(ITransaction txn) {
        
         validator=new IsPerson();
@@ -39,6 +34,12 @@ public class CheckingAccount extends Account {
     }
 
     @Override
+    public String getType() {
+        // TODO Auto-generated method stub
+        return BankInformation.SAVING;
+    }
+
+    @Override
     public Report getReport() {
         Map<String, String> myReport = new HashMap<String, String>();
         myReport.put("Account Number", "" + getId() + "");
@@ -51,4 +52,5 @@ public class CheckingAccount extends Account {
     public double computeInterest() {
         return getCurrentBalance() * interestRate / 100;
     }
+
 }

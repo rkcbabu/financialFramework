@@ -70,9 +70,9 @@ public class BankFactory extends AbstractFactory {
 
         }
         if (type.equals(AccountType.checkings)) {
-            return new CheckingAccount(customer, 1.16);
+            return new Checking(customer, 1.16);
         } else {
-            return new SavingAccount(customer, 1.16);
+            return new Saving(customer, 1.16);
         }
     }
 

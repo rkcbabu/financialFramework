@@ -11,7 +11,7 @@ public class BankClient extends FrameworkClient {
         MainView mainView = new BankMainView("Bank Application",
                 new BankUIFactory());
 
-        FrameworkClient ccClient = new BankClient()
+        FrameworkClient bClient = new BankClient()
                 .setCustomerManager(new BankCustomerManager())
                 .setTransactionManager(new BankTransactionManager())
                 .setAccountManager(new BankAccountManager())
@@ -19,7 +19,7 @@ public class BankClient extends FrameworkClient {
                 .setController(new Controller())
                 .setMainView(mainView)
                 .setUiController(new UIController(mainView, new BankFormFactory()));
-        ccClient.init();
+        bClient.init();
     }
 
 }

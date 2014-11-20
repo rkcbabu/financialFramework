@@ -15,7 +15,7 @@ public class AppClient extends FrameworkClient {
         MainView mainView = new AppMainView("Financial Application",
                 new DefaultUIFactory());
 
-        FrameworkClient ccClient = new AppClient()
+        FrameworkClient appClient = new AppClient()
                 .setCustomerManager(new CustomerManager())
                 .setTransactionManager(new TransactionManager())
                 .setAccountManager(new AccountManager())
@@ -23,7 +23,7 @@ public class AppClient extends FrameworkClient {
                 .setController(new Controller())
                 .setMainView(mainView)
                 .setUiController(new UIController(mainView, new AppFormDialogFactory()));
-        ccClient.init();
+        appClient.init();
     }
 
 }

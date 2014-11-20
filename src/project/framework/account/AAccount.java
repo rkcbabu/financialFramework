@@ -1,8 +1,12 @@
 package project.framework.account;
 
+import java.util.ArrayList;
 import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
+import project.framework.transaction.ITransaction;
 import project.framework.transaction.ITransactionManager;
+import project.logic.IPredicate;
+import project.logic.IsCompany;
 
 public abstract class AAccount implements IAccount {
 
@@ -11,17 +15,22 @@ public abstract class AAccount implements IAccount {
     protected ICustomer customer;
     protected IAccountManager accountManager;
     protected ITransactionManager transactionManger;
+    protected ArrayList<ITransaction> transactionList;
+    protected IPredicate validator;
 
     public AAccount(int accId, ICustomer customer) {
         super();
         this.accId = accId;
         this.customer = customer;
+        transactionList=new ArrayList<>();
+        
     }
 
     public AAccount(ICustomer customer) {
         this.customer = customer;
-        accId = 0;
+       
         accId++;
+         transactionList=new ArrayList<>();
 
     }
 
@@ -32,7 +41,15 @@ public abstract class AAccount implements IAccount {
     }
 
     @Override
-    public final void addBalance(double amount) {
+    public  void addBalance(ITransaction txn) {
+        double amount=txn.getAmount();
+        this.transactionList.add(txn);
+        validator=new IsCompany();
+        if(validator.execute(getCustomer())){
+            getCustomer().sendEmail(txn, this);
+        }
+       
+        
         currentBalance += amount;
     }
 

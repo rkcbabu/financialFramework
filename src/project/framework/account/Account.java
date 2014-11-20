@@ -11,6 +11,10 @@ public class Account extends AAccount {
     public Account(ICustomer customer) {
         super(customer);
     }
+    
+    // public Account(ICustomer customer) {
+     //   super(customer);
+   // }
 
     @Override
     public String getType() {

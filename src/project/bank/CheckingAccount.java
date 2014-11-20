@@ -5,6 +5,9 @@ import java.util.Map;
 import project.framework.account.Account;
 import project.framework.customer.ICustomer;
 import project.framework.reporting.Report;
+import project.framework.transaction.ITransaction;
+import project.logic.IsGreater;
+import project.logic.IsPerson;
 
 public class CheckingAccount extends Account {
 
@@ -18,6 +21,21 @@ public class CheckingAccount extends Account {
     @Override
     public String getType() {
         return BankInformation.CHECKING;
+    }
+    
+     @Override
+    public  void addBalance(ITransaction txn) {
+       
+        validator=new IsPerson();
+        if(validator.execute(getCustomer())){
+            validator=new IsGreater();
+            
+            if(validator.isGreater(txn.getAmount(), 500.00) || (this.getCurrentBalance()+txn.getAmount())<0)
+            getCustomer().sendEmail(txn, this);
+        }
+       
+        super.addBalance(txn);
+        //currentBalance += amount;
     }
 
     @Override

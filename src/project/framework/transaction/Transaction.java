@@ -25,7 +25,7 @@ public abstract class Transaction implements ITransaction {
     }
 
     public void execute() {
-        account.addBalance(amount);
+        account.addBalance(this);
         account.notifyCustomer(this);
     }
 

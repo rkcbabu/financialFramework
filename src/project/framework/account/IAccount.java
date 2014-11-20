@@ -4,12 +4,13 @@ import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
 import project.framework.transaction.ITransactionManager;
 import project.framework.reporting.Report;
+import project.framework.transaction.ITransaction;
 
 public interface IAccount {
 
     public void setManagers(IAccountManager accountManger, ITransactionManager transactionManager);
 
-    public void addBalance(double amount);
+    public void addBalance(ITransaction txn);
 
     public int getId();
 

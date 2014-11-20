@@ -5,6 +5,9 @@ import java.util.Map;
 import project.framework.account.Account;
 import project.framework.customer.ICustomer;
 import project.framework.reporting.Report;
+import project.framework.transaction.ITransaction;
+import project.logic.IsGreater;
+import project.logic.IsPerson;
 
 public class SavingAccount extends Account {
 
@@ -13,6 +16,21 @@ public class SavingAccount extends Account {
     public SavingAccount(ICustomer customer, double irRate) {
         super(customer);
         this.interestRate = irRate;
+    }
+    
+      @Override
+    public  void addBalance(ITransaction txn) {
+       
+        validator=new IsPerson();
+        if(validator.execute(getCustomer())){
+            validator=new IsGreater();
+            
+            if(validator.isGreater(txn.getAmount(), 500.00) || (this.getCurrentBalance()+txn.getAmount())<0)
+            getCustomer().sendEmail(txn, this);
+        }
+       
+        super.addBalance(txn);
+        //currentBalance += amount;
     }
 
     @Override

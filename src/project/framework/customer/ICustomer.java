@@ -3,9 +3,9 @@ package project.framework.customer;
 import project.framework.account.IAccount;
 import java.util.List;
 
-import project.framework.customer.Address;
 import project.framework.transaction.Transaction;
 import project.framework.reporting.Report;
+import project.framework.transaction.ITransaction;
 
 public interface ICustomer {
 
@@ -13,7 +13,7 @@ public interface ICustomer {
 
     public boolean remove(IAccount account);
 
-    public boolean sendEmail(Transaction transaction, IAccount account);
+    public boolean sendEmail(ITransaction transaction, IAccount account);
 
     public boolean checkEmailSendingCondition(Transaction transaction);
 

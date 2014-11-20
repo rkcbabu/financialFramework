@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project.framework.account.IAccount;
+import project.framework.transaction.ITransaction;
 import project.framework.transaction.Transaction;
 
 public abstract class ACustomer implements ICustomer {
@@ -38,7 +39,7 @@ public abstract class ACustomer implements ICustomer {
     }
 
     @Override
-    public boolean sendEmail(Transaction transaction, IAccount account) {
+    public boolean sendEmail(ITransaction transaction, IAccount account) {
 
         return false;
     }

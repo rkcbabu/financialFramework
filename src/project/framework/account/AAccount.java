@@ -5,8 +5,8 @@ import project.framework.transaction.Transaction;
 import project.framework.customer.ICustomer;
 import project.framework.transaction.ITransaction;
 import project.framework.transaction.ITransactionManager;
-import project.logic.IPredicate;
-import project.logic.IsCompany;
+import project.framework.logic.IPredicate;
+import project.framework.logic.IsCompany;
 
 public abstract class AAccount implements IAccount {
     private static int StartAccNumber = 1000;

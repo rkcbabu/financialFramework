@@ -6,8 +6,8 @@ import project.framework.account.Account;
 import project.framework.customer.ICustomer;
 import project.framework.reporting.Report;
 import project.framework.transaction.ITransaction;
-import project.logic.IsGreater;
-import project.logic.IsPerson;
+import project.framework.logic.IsGreater;
+import project.framework.logic.IsPerson;
 
 public class Silver extends Account {
 

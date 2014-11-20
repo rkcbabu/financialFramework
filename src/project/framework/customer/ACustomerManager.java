@@ -11,7 +11,6 @@ public abstract  class ACustomerManager extends Observable implements ICustomerM
 	public final void setController(Controller controller) {
 		this.frameworkController = controller;
 		addObserver(controller);
-		
 	}
 	
 	@Override

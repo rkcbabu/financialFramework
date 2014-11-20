@@ -7,19 +7,19 @@ import project.framework.ui.AbstractDynamicPanel;
 
 public class BankUIFactory implements IUIFactory {
 
-	@Override
-	public AbstractDynamicPanel createCRPanel() {
-		return new BankFormPanel();
-	}
+    @Override
+    public AbstractDynamicPanel createCRPanel() {
+        return new BankFormPanel();
+    }
 
-	@Override
-	public AbstractDynamicPanel createTRPanel() {
-		return new BankTxnPanel();
-	}
+    @Override
+    public AbstractDynamicPanel createTRPanel() {
+        return new BankTxnPanel();
+    }
 
-	@Override
-	public JButton createReportButton() {
-		return new JButton("Generate Report");
-	}
+    @Override
+    public JButton createReportButton() {
+        return new JButton("Generate Report");
+    }
 
 }

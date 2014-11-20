@@ -8,7 +8,6 @@ import java.util.List;
 import project.framework.CellData;
 import project.framework.FormModel;
 
-
 import project.framework.customer.Address;
 import project.framework.customer.ACustomer;
 import project.framework.customer.Person;
@@ -19,56 +18,53 @@ import project.framework.ICellData;
 import project.framework.reporting.IReportComputer;
 import project.framework.transaction.ITransaction;
 
-public class Factory extends AbstractFactory{
+public class Factory extends AbstractFactory {
 
-	@Override
-	public IReportComputer getReportComputer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IReportComputer getReportComputer() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public List<ICellData> getDataSet(ICustomerManager customerManager) {
-		List<ICellData> list = new ArrayList<ICellData>();
-		for(ICustomer c:customerManager.getAll()){
-			for(IAccount a:c.getAll()){
-				list.add(new CellData(c, a));
-			}
-		}
-		return list;
-	}
+    @Override
+    public List<ICellData> getDataSet(ICustomerManager customerManager) {
+        List<ICellData> list = new ArrayList<ICellData>();
+        for (ICustomer c : customerManager.getAll()) {
+            for (IAccount a : c.getAll()) {
+                list.add(new CellData(c, a));
+            }
+        }
+        return list;
+    }
 
-	@Override
-	public ACustomer createCustomer(FormModel form, String customerType) {
-		String name = form.getName();
-		String email = form.getEmail();
-		String street = form.getStreet();
-		String city = form.getCity();
-		String state = form.getState();
-		String zipCode= form.getZip();
-		Address address =new Address(street, city, zipCode, state);
-		return new Person(address, name, email,"");
-	}
+    @Override
+    public ACustomer createCustomer(FormModel form, String customerType) {
+        String name = form.getName();
+        String email = form.getEmail();
+        String street = form.getStreet();
+        String city = form.getCity();
+        String state = form.getState();
+        String zipCode = form.getZip();
+        Address address = new Address(street, city, zipCode, state);
+        return new Person(address, name, email, "");
+    }
 
-	@Override
-	public IAccount createAccount(FormModel form, ICustomer customer,
-			String accountType) {
+    @Override
+    public IAccount createAccount(FormModel form, ICustomer customer,
+            String accountType) {
 		//process the form for any field required to create the account, 
-		//in this case the application itself generates the account number
-		return new Account(customer);
-	}
+        //in this case the application itself generates the account number
+        return new Account(customer);
+    }
 
-	@Override
-	public ITransaction getTransaction(IAccount account, double amount,
-			String type) {
-		if(type.equals("deposit")){
-			return new Deposit(account, amount, "");
-		}
-		else{
-			return new Withdraw(account, amount, "");
-		}
-	}
-
-	
+    @Override
+    public ITransaction getTransaction(IAccount account, double amount,
+            String type) {
+        if (type.equals("deposit")) {
+            return new Deposit(account, amount, "");
+        } else {
+            return new Withdraw(account, amount, "");
+        }
+    }
 
 }

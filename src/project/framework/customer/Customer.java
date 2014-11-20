@@ -5,62 +5,62 @@ import java.util.List;
 import project.framework.account.IAccount;
 import project.framework.transaction.Transaction;
 
-public abstract class Customer implements ICustomer{
-	private Address address;
-	private String name;
-	private String email;
-	
-	private List<IAccount> accounts = new ArrayList<IAccount>();
-	
+public abstract class Customer implements ICustomer {
 
-	public Customer(Address address, String name, String email) {
-		super();
-		this.address = address;
-		this.name = name;
-		this.email = email;
-	}
-	
+    private Address address;
+    private String name;
+    private String email;
+
+    private List<IAccount> accounts = new ArrayList<IAccount>();
+
+    public Customer(Address address, String name, String email) {
+        super();
+        this.address = address;
+        this.name = name;
+        this.email = email;
+    }
+
 //	@Override
-	public boolean addAccount(IAccount account) {
-		accounts.add(account);
-		return true;
-	}
-	
+    public boolean addAccount(IAccount account) {
+        accounts.add(account);
+        return true;
+    }
+
 //	@Override
-	public boolean removeAccount(IAccount account) {
-		return accounts.remove(account);
-	}
-	
+    public boolean removeAccount(IAccount account) {
+        return accounts.remove(account);
+    }
+
 //	@Override
-	public List<IAccount> getAllAccount() {
-		return accounts;
-	}
-	
-	@Override
-	public boolean sendEmail(Transaction transaction, IAccount account) {
-		
-		return false;
-	}
-	@Override
-	public abstract boolean checkEmailSendingCondition(Transaction transaction); 
-	@Override
-	public abstract String getType();
+    public List<IAccount> getAllAccount() {
+        return accounts;
+    }
 
-	@Override
-	public Address getAddress() {
-		return address;
-	}
+    @Override
+    public boolean sendEmail(Transaction transaction, IAccount account) {
 
-	@Override
-	public String getName() {
-		return name;
-	}
+        return false;
+    }
 
-	@Override
-	public String getEmail() {
-		return email;
-	}
-	
-	
+    @Override
+    public abstract boolean checkEmailSendingCondition(Transaction transaction);
+
+    @Override
+    public abstract String getType();
+
+    @Override
+    public Address getAddress() {
+        return address;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
 
 }

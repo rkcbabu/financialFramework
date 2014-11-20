@@ -50,7 +50,7 @@ public class SilverCCardAccount extends AAccount {
     @Override
     public double computeInterest() {
         // TODO Auto-generated method stub
-        return 0;
+        return getCurrentBalance() * monthlyInterest;
     }
 
 }

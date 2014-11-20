@@ -28,7 +28,7 @@ public class CCardFactory extends AbstractFactory {
         List<ICellData> list = new ArrayList<ICellData>();
         for (ICustomer c : customerManager.getAll()) {
             for (IAccount a : c.getAll()) {
-                list.add(new CCardDataSet(c, a));
+                list.add(new CCardCellData(c, a));
             }
         }
         return list;
@@ -49,7 +49,7 @@ public class CCardFactory extends AbstractFactory {
     @Override
     public IAccount createAccount(FormModel form, ICustomer customer,
             String accountType) {
-		// process the form for any field required to create the account,
+        // process the form for any field required to create the account,
         // in this case the application itself generates the account number
         AccountType type;
         if (form instanceof CCardFormModel) {
@@ -71,7 +71,7 @@ public class CCardFactory extends AbstractFactory {
     @Override
     public Transaction getTransaction(IAccount account, double amount,
             String type) {
-        if (type.equals("deposit")) {
+        if (type.equals("deposit") || type.equals("addinterest")) {
             return new CCardDeposit(account, amount, "");
         } else {
             return new CCardCharge(account, amount, "");

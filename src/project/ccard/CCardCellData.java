@@ -5,12 +5,12 @@ import project.framework.ICellData;
 import project.framework.account.IAccount;
 import project.framework.customer.ICustomer;
 
-public class CCardDataSet implements ICellData<Integer> {
+public class CCardCellData implements ICellData<Integer> {
 
     public ICustomer customer;
     public IAccount account;
 
-    public CCardDataSet(ICustomer customer, IAccount account) {
+    public CCardCellData(ICustomer customer, IAccount account) {
         super();
         this.customer = customer;
         this.account = account;

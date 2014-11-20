@@ -7,11 +7,11 @@ import project.framework.UIController;
 
 public abstract class AbstractCRFactory {
 
-	protected UIController uiController;
+    protected UIController uiController;
 
-	public AbstractCRFactory() {
-            
-	}
-	
-	public abstract JDialog createCRDialog(String type,RegistrationActionListener listener);
+    public AbstractCRFactory() {
+
+    }
+
+    public abstract JDialog createCRDialog(String type, RegistrationActionListener listener);
 }

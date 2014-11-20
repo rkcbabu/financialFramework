@@ -8,19 +8,19 @@ import project.framework.ui.AbstractDynamicPanel;
 
 public class DefaultUIFactory implements IUIFactory {
 
-	@Override
-	public AbstractDynamicPanel createCRPanel() {
-		return new AppFormPanel();
-	}
+    @Override
+    public AbstractDynamicPanel createCRPanel() {
+        return new AppFormPanel();
+    }
 
-	@Override
-	public AbstractDynamicPanel createTRPanel() {
-		return new AppTxnPanel();
-	}
+    @Override
+    public AbstractDynamicPanel createTRPanel() {
+        return new AppTxnPanel();
+    }
 
-	@Override
-	public JButton createReportButton() {
-		return new JButton("Generate Report");
-	}
+    @Override
+    public JButton createReportButton() {
+        return new JButton("Generate Report");
+    }
 
 }

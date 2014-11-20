@@ -1,5 +1,6 @@
 package project.ccard;
 
+import project.framework.FrameworkClient;
 import project.bank.*;
 import project.framework.Controller;
 import project.framework.factory.IAbstractFactory;
@@ -9,26 +10,21 @@ import project.framework.transaction.ITransactionManager;
 import project.framework.ui.MainView;
 import project.framework.UIController;
 
-public class CCardClient {
+public class CCardClient extends FrameworkClient {
 
     public static void main(String[] args) {
-        ICustomerManager customerManager = new CCardCustomerManager();
-        ITransactionManager transactionManager = new CCardTransactionManager();
-        IAccountManager accountManager = new CCardAccountManager();
-        IAbstractFactory myFactory = new CCardFactory();
 
-        Controller controller = new Controller();
+        MainView mainView = new CCardMainView("CCard Application", new CCardUIFactory());
 
-        MainView mainView = new CCardMainView("Credit Card Application",
-                new CCardUIFactory());
-        UIController uiController = new UIController(mainView,
-                new CCardFormFactory());
-        controller.setAccountServiceManager(accountManager);
-        controller.setCustomerServiceManager(customerManager);
-        controller.setTransactionServiceManager(transactionManager);
-        controller.setCreationServiceManager(myFactory);
-        controller.setUIServiceController(uiController);
-        mainView.setVisible(true);
+        FrameworkClient ccClient = new CCardClient()
+                .setCustomerManager(new CCardCustomerManager())
+                .setTransactionManager(new CCardTransactionManager())
+                .setAccountManager(new CCardAccountManager())
+                .setMyFactory(new CCardFactory())
+                .setController(new Controller())
+                .setMainView(mainView)
+                .setUiController(new UIController(mainView, new CCardFormFactory()));
+        ccClient.init();
     }
 
 }

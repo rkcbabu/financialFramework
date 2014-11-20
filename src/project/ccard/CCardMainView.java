@@ -23,7 +23,7 @@ public class CCardMainView extends MainView {
 
     static public void main(String args[]) {
         try {
-			// Add the following code if you want the Look and Feel
+            // Add the following code if you want the Look and Feel
             // to be set to the Look and Feel of the native system.
 
             try {
@@ -32,7 +32,7 @@ public class CCardMainView extends MainView {
             } catch (Exception e) {
             }
 
-			// Create a new instance of our application's frame, and make it
+            // Create a new instance of our application's frame, and make it
             // visible.
             MainView mainView = new CCardMainView(
                     "Credit card application", new CCardUIFactory());

@@ -6,7 +6,7 @@ import project.framework.account.AccountManager;
 import project.framework.account.IAccount;
 
 public class BankAccountManager extends AccountManager {
-	
-	private List<IAccount> accounts = new ArrayList<IAccount>();
-	
+
+    private List<IAccount> accounts = new ArrayList<IAccount>();
+
 }

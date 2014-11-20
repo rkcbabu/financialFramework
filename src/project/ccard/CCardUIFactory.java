@@ -1,7 +1,6 @@
 package project.ccard;
 
 import javax.swing.JButton;
-import project.bank.BankTxnPanel;
 import project.framework.factory.IUIFactory;
 import project.framework.ui.AbstractDynamicPanel;
 
@@ -14,7 +13,7 @@ public class CCardUIFactory implements IUIFactory {
 
     @Override
     public AbstractDynamicPanel createTRPanel() {
-        return new BankTxnPanel();
+        return new CCardTxnPanel();
     }
 
     @Override
